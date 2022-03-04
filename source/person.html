@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple.webp">
+    <title>Илья Ферштейн</title>
+  </head>
+  <body class="main-body">
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    function close(id) {
+      document.getElementById(id).classList.toggle("hide");
+    }
+    function Dropdown(id) {
+      document.getElementById(id).classList.toggle("show");
+    }
+    function Edit(edit_id, delete_id) {
+      document.getElementById(edit_id).classList.toggle("show");
+      document.getElementById(delete_id).classList.toggle("hide");
+    }
+  </script>
+  <header class="main-header">
+    <h1 class="main-header__heading">explorex</h1>
+    <div class="main-header__profile">
+      <img class="main-header__photo--logout" src="img/exit.svg" alt="выйти">
+      <img class="main-header__photo" src="img/profile.jpg" alt="фото">
+    </div>
+  </header>
+  <section class="main-menu">
+    <ul class="main-menu__list">
+      <li class="main-menu__item main-menu__item--active"><a class="main-menu__default" href="community.html">Главная</a></li>
+      <li class="main-menu__item"><a class="main-menu__default" href="chat.html">Пользователи</a></li>
+      <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.html">Чат</a><button class="main-menu__notion">5</button></li>
+    </ul>
+  </section>
+  <main class="person">
+    <div class="person__info-container">
+      <div>
+        <div class="person__photo person__photo--default"></div>
+        <form class="person__form" id="edit-profile">
+          <div class="person__form-container">
+            <label class="person__label">Ваше имя</label>
+            <input class="person__input" name="per-name" id="per-name" type="text" value="fer">
+          </div>
+          <div class="person__form-container">
+            <label class="person__label">Возраст</label>
+            <input class="person__input person__input--number" name="per-age" id="per-age" type="number" value="erf">
+          </div>
+          <div class="person__form-container">
+            <label class="person__label">Информация о вас</label>
+            <textarea class="person__textarea" name="per-info" id="per-info">refe</textarea>
+          </div>
+          <input class="person__submit-form" type="submit" value="Сохранить изменения">
+        </form>
+        <div class="person__info" id="person-info">
+          <h1 class="person__info-heading">Илья Ферштейн?</h1>
+          <h2 class="person__info-age">13 лет</h2>
+          <p>Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
+          <button class="person__button" onclick="Edit('edit-profile', 'person-info')">
+            Редактировать
+          </button>
+        </div>
+        <div class="person__forms">
+          <form class="person__form" id="myDropdown">
+            <img class="person__form-cancel" src="img/cancel-cross_icon-icons.com_71726.svg" alt="close" onclick="close('myDropdown')">
+            <div class="person__form-container">
+              <label for="app-title">
+                Заголовок заявки
+              </label>
+              <input class="person__form-input" type="text" id="app-title" name="app-title" placeholder="Кратко напишите о том, в чем хотите получить помощь">
+            </div>
+            <div class="person__form-container">
+              <label for="app-description">
+                Содержание заявки
+              </label>
+              <textarea class="person__app-description" name="app-description" id="app-description" placeholder="Кратко напишите о том, в чем хотите получить помощь"></textarea>
+            </div>
+            <label for="app-subject">
+              Предмет заявки
+            </label>
+            <div class="person__form-container">
+              <select name="app-subject" id="app-subject">
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Английский язык</option>
+              </select>
+            </div>
+            <input class="person__app-btn" type="submit" value="Опубликовать">
+          </form>
+          <form class="person__form" id="myDropdown1">
+            <div class="person__form-container">
+              <label for="app-title">
+                Заголовок вопроса
+              </label>
+              <input class="person__form-input" type="text" id="app-title" name="app-title" placeholder="Кратко напишите о том, в чем хотите получить помощь">
+            </div>
+            <div class="person__form-container">
+              <label for="app-description">
+                Описание вопроса
+              </label>
+              <textarea class="person__app-description" name="app-description" id="app-description" placeholder="Кратко напишите о том, в чем хотите получить помощь"></textarea>
+            </div>
+            <label for="app-subject">
+              Предмет заявки
+            </label>
+            <div class="person__form-container">
+              <select name="app-subject" id="app-subject">
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Английский язык</option>
+              </select>
+            </div>
+            <div class="person__form-container">
+              <input type="file" value="Прикрепить фото">
+            </div>
+            <input class="person__app-btn" type="submit" value="Опубликовать">
+          </form>
+        </div>
+      </div>
+      <hr>
+      <section class="person__applications-container">
+        <h2 class="person__title">Мои заявки</h2>
+        <ul class="people__list people__list--profile">
+          <li class="people__item people__item--main people__item--profile">
+            <a href="person.html" class="people__item people__item--profile">
+              <div class="people__info-container">
+                <div class="person__skill-mini">
+                  <h6 class="people__title people__title--profile">Прошу помочь мне с английским языком?</h6>
+                  <div class="person__icons-box">
+                    <picture>
+                      <source srcset="img/edit.svg" media="(min-width: 1000px)">
+                      <img class="person__skill-icon person__skill-icon--app" src="img/edit-mob.svg" alt="Edit">
+                    </picture>
+                  </div>
+                  </div>
+                  <div class="people__location-container people__location-container--profile">
+                    <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
+                    <h4 class="people__location-title">Зальзбург</h4>
+                  </div>
+                  <div>
+                    <button class="people__button people__button--profile">
+                      АНГЛИЙСКИЙ ЯЗЫК
+                    </button>
+                </div>
+                <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
+              </div>
+            </a>
+          </li>
+          <li class="people__item people__item--main people__item--profile">
+            <a href="person.html" class="people__item people__item--profile">
+              <div class="people__info-container">
+                <div class="person__skill-mini">
+                  <h6 class="people__title people__title--profile">Прошу помочь мне с английским языком?</h6>
+                  <div class="person__icons-box">
+                    <picture>
+                      <source srcset="img/edit.svg" media="(min-width: 1000px)">
+                      <img class="person__skill-icon person__skill-icon--app" src="img/edit-mob.svg" alt="Edit">
+                    </picture>
+                  </div>
+                </div>
+                <div class="people__location-container people__location-container--profile">
+                  <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
+                  <h4 class="people__location-title">Зальзбург</h4>
+                </div>
+                <div>
+                  <button class="people__button people__button--profile">
+                    АНГЛИЙСКИЙ ЯЗЫК
+                  </button>
+                </div>
+                <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <button class="person__button" onclick="myFunction()">
+          Создать заявку
+        </button>
+      </section>
+      <hr>
+      <section class="person__skills-info">
+        <div class="person__skills-wrapper">
+          <h2 class="person__skills-title">Владею предметами:</h2>
+          <ul class="person__list">
+            <li class="person__skill">
+              <div class="person__skill-mini">
+                <p class="person__skill-title">Математика</p>
+                <img class="person__skill-icon" src="img/edit.svg" alt="Редактировать" onclick="Edit('myDropdown5', 'edit1')">
+              </div>
+              <hr class="person__skill-hr">
+              <p class="person__skill-description" id="edit1">Хорошо разбираюсь в планиметрии. Помогу с уравнениями и Марковским блужданием.</p>
+              <form class="person__form" id="myDropdown5">
+                <textarea>Хорошо разбираюсь в планиметрии. Помогу с уравнениями и Марковским блужданием.</textarea>
+                <input type="submit" value="сохранить">
+              </form>
+            </li>
+            <li class="person__skill">
+              <div class="person__skill-mini">
+                <p class="person__skill-title">Математика</p>
+                <img class="person__skill-icon" src="img/edit.svg" alt="Редактировать">
+              </div>
+              <hr class="person__skill-hr">
+              <p class="person__skill-description">Хорошо разбираюсь в планиметрии. Помогу с уравнениями и Марковским блужданием.</p>
+            </li>
+          </ul>
+          <form class="person__form" id="Dropdown4">
+            <div class="person__form-container">
+              <label>Предмет</label>
+              <select>
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Литература</option>
+                <option>Немецкий язык</option>
+              </select>
+            </div>
+            <div class="person__form-container">
+              <label for="sub-description">Ваши умения</label>
+              <textarea class="person__app-description" name="sub-description" id="sub-description" placeholder="Подробно опишите ваши умения в предмете" autofocus="autofocus"></textarea>
+            </div>
+            <input class="person__app-btn" type="submit" value="СОХРАНИТЬ">
+          </form>
+          <div class="person__addbtn-container">
+            <button class="person__skill-addbtn" onclick="Dropdown('Dropdown4')"></button>
+            <p class="person__add-text">Добавить предмет</p>
+          </div>
+        </div>
+        <div class="person__skills-wrapper">
+        <h2 class="person__skills-title">Хочу разобраться в предметах:</h2>
+          <ul class="person__list">
+            <li class="person__skill">
+              <div class="person__skill-mini">
+                <p class="person__skill-title">Математика</p>
+                <img class="person__skill-icon" src="img/edit.svg" alt="Редактировать">
+              </div>
+              <hr class="person__skill-hr">
+              <p class="person__skill-description">Хорошо разбираюсь в планиметрии. Помогу с уравнениями и Марковским блужданием.</p>
+            </li>
+            <li class="person__skill">
+              <div class="person__skill-mini">
+                <p class="person__skill-title">Математика</p>
+                <div class="person__skill-mini-container">
+                  <img class="person__skill-icon" src="img/edit.svg" alt="Редактировать">
+                  <img class="person__skill-icon" src="img/delete.svg" alt="Удалить">
+                </div>
+              </div>
+              <hr class="person__skill-hr">
+              <p class="person__skill-description">Хорошо разбираюсь в планиметрии. Помогу с уравнениями и Марковским блужданием.</p>
+            </li>
+          </ul>
+          <form class="person__form" id="Dropdown3">
+            <div class="person__form-container">
+              <label>Предмет</label>
+              <select>
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Литература</option>
+                <option>Немецкий язык</option>
+              </select>
+            </div>
+            <div class="person__form-container">
+              <label for="sub-description">Ваши умения</label>
+              <textarea class="person__app-description" name="sub-description" id="sub-description" placeholder="Подробно опишите ваши слабые стороны в предмете" autofocus="autofocus"></textarea>
+            </div>
+            <input class="person__app-btn" type="submit" value="СОХРАНИТЬ">
+          </form>
+          <button class="person__skill-addbtn" onclick="Dropdown('Dropdown3')"></button>
+          <p class="person__add-text">Добавить предмет</p>
+        </div>
+    </section>
+    </div>
+    <section class="settings">
+      <div class="settings__heading-container">
+        <img class="settings__icon" src="img/settings.svg" alt="Настройки">
+        <h2 class="settings__title">Смена пароля</h2>
+      </div>
+      <form class="settings__form">
+        <label for="current-pass"></label>
+        <input class="settings__input" type="password" placeholder="Текущий пароль" id="current-pass" name="current-pass">
+        <label for="new-pass"></label>
+        <input class="settings__input" type="password" placeholder="Новый пароль" id="new-pass" name="new-pass">
+        <input class="settings__submit" type="submit" value="Изменить">
+      </form>
+      <button class="person__submit-form person__submit-form--destroy">
+        Удалить аккаунт
+      </button>
+    </section>
+    <section class="settings">
+      <div class="settings__heading-container">
+        <h2 class="settings__title">Смена логина</h2>
+      </div>
+      <form class="settings__form">
+        <label for="current-pass"></label>
+        <input class="settings__input" type="password" placeholder="Текущая электронная почта" id="current-pass" name="current-pass">
+        <label for="new-pass"></label>
+        <input class="settings__input" type="password" placeholder="Новая почта" id="new-pass" name="new-pass">
+        <input class="settings__submit" type="submit" value="Изменить">
+      </form>
+    </section>
+    <section class="feedback">
+      <div class="settings__heading-container">
+        <img class="settings__icon" src="img/feedback.svg" alt="Отзывы">
+        <h2 class="settings__title">Отзывы</h2>
+      </div>
+      <ul class="settings__list">
+        <li class="settings__item">
+          <h4 class="settings__title">Елена Шпортмахен</h4>
+          <span>5 pm</span>
+          <p class="settings__p">
+            Отзыв — это письменное либо устное высказывание основанное на выражении личностного эмоционально-оценочного отношения к увиденному, услышанному или пережитому опыту. Это, мнение о ком-нибудь или о чем-нибудь, анализ, разбор, оценка продукта или оказанной услуги.
+          </p>
+          <hr class="settings__hr">
+        </li>
+        <li class="settings__item">
+          <h4 class="settings__title">Елена Шпортмахен</h4>
+          <span>5 pm</span>
+          <p class="settings__p">
+            Отзыв — это письменное либо устное высказывание основанное на выражении личностного эмоционально-оценочного отношения к увиденному, услышанному или пережитому опыту. Это, мнение о ком-нибудь или о чем-нибудь, анализ, разбор, оценка продукта или оказанной услуги.
+          </p>
+          <hr class="settings__hr">
+        </li>
+        <li class="settings__item">
+          <h4 class="settings__title">Елена Шпортмахен</h4>
+          <span>5 pm</span>
+          <p class="settings__p">
+            Отзыв — это письменное либо устное высказывание основанное на выражении личностного эмоционально-оценочного отношения к увиденному, услышанному или пережитому опыту. Это, мнение о ком-нибудь или о чем-нибудь, анализ, разбор, оценка продукта или оказанной услуги.
+          </p>
+          <hr class="settings__hr">
+        </li>
+      </ul>
+      <button class="person__submit-form person__submit-form--feedback">
+        Оставить отзыв
+      </button>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <a href="mailto:" class="page-footer__text">info@taifun.ru</a>
+    <br class="page-footer__text">
+    <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+    <br class="page-footer__text">
+    <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+  </footer>
+  </body>
+</html>

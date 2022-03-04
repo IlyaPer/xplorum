@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>ЗАЯВКИ</title>
+</head>
+<body class="main-body">
+<header class="main-header">
+  <img class="main-header__heading" src="../img/logotype.svg" alt="explorex">
+  <a class="main-header__username" href="person.html">
+    <div class="main-header__profile">
+      <h2 class="main-header__username">ИЛЬЯ</h2>
+      <img class="main-header__photo" src="img/profile.jpg" alt="фото">
+    </div>
+  </a>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="default" href="community.html">ЗАЯВКИ</a></li>
+    <li class="main-menu__item main-menu__item--active"><a class="default" href="special.html">Форум</a></li>
+    <li class="main-menu__item "><a class="default" href="search.html">СОЮЗ</a></li>
+    <li class="main-menu__item"><a class="default" href="search.html">ЧАТ</a></li>
+  </ul>
+  <hr>
+</section>
+<main>
+  <section class="question">
+    <div class="question__mini-cont">
+      <img class="question__photo" src="img/elenasportmachen.jpg" alt="name">
+      <button class="question__subject">Литература</button>
+    </div>
+    <h1 class="question__heading">Кто нашел стрелу, которую пустил младший брат в “Царевна-лягушка”?</h1>
+    <p class="question__desc">Изучаем русскую народну сказку “Царевна-лягушка”  Нужно ответить на вопрос: когда пустил стрелу младший из трех братьев,  она попала в грязное болото. Кто ее подхватил? Помогите, пожалуйста!</p>
+    <p class="question__info">
+      12 часов назад
+    </p>
+    <hr>
+  </section>
+  <section class="answers">
+    <h2 class="answers__heading">Ответы</h2>
+    <ul class="answers__list">
+      <li class="answers__item">
+        <img class="answers__photo" src="img/elenasportmachen.jpg" alt="name">
+        <div class="answers__container">
+          <h2 class="answers__name">Даниил</h2>
+          <p class="answers__content">Насколько я помню, стрелу нашла именно лягушка, которая потом привратилась в прекрасную девушку!</p>
+        </div>
+        <hr>
+      </li>
+    </ul>
+    <form class="answers__form" method="post" action="answer.php">
+      <label for="content"></label>
+      <input class="answers__input" type="text" name="content" id="content" placeholder="Напишите свой ответ...">
+      <input class="answers__submit" type="submit" value="Опубликовать">
+    </form>
+  </section>
+</main>
+</body>
+</html>

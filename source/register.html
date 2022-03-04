@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>Регистрация</title>
+</head>
+<body class="main-body">
+  <header class="main-header">
+    <h1 class="main-header__heading">союз-тайфун</h1>
+    <div class="main-header__profile">
+      <h2 class="main-header__username">ИЛЬЯ</h2>
+      <img class="main-header__photo" src="img/profile.jpg" alt="фото">
+    </div>
+  </header>
+  <form class="registration-form" method="post" enctype="multipart/form-data" action="">
+    <div class="registration-form__container">
+      <label for="name">
+        Ваше имя
+      </label>
+      <input class="registration-form__input" type="text" name="name" id="name" value="">
+    </div>
+    <div class="registration-form__container">
+      <label for="email">
+        Ваш email
+      </label>
+      <input class="registration-form__input" type="email" name="email" id="email" value="">
+    </div>
+    <label for="password">
+      Придумайте пароль:
+    </label>
+    <input class="registration-form__input" type="password" name="password" id="password" value="">
+    <div class="registration-form__container">
+      <label for="checkbox">
+        Принимаю <a href="agreement.html">согласие на обработку персональных данных</a>
+      </label>
+      <input class="registration-form__input" type="checkbox" name="checkbox" id="checkbox" value="">
+    </div>
+    <div class="registration-form__container">
+      <input class="registration-form__register" type="submit" value="Зарегистрироваться">
+    </div>
+  </form>
+</body>
+</html>

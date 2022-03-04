@@ -1,0 +1,133 @@
+.main-body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  padding: 0 10% 0 10%;
+}
+
+.main-header {
+  color: #ffff;
+  display: flex;
+  padding: 0 10% 0 10%;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(24,24,24);
+  background: linear-gradient(90deg, rgba(24,24,24,0.8830882694874825) 15%, rgba(1,1,0,0.9054972330729166) 75%);
+  height: 10%;
+}
+
+.main-header__profile {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header__heading {
+  width: 20%;
+
+  @media (max-width: @mobile-width) {
+    width: 20%;
+  }
+}
+
+.main-header__username {
+  font-size: 20px;
+  padding: 15px;
+  color: #FFFFFF;
+  text-decoration: none;
+
+  @media (max-width: @mobile-width) {
+    font-size: 14px;
+  }
+}
+
+.main-header__photo {
+  border: 3px solid #FFFFFF;
+  margin: 0 0 0 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  @media (min-width: @desktop-width) {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.main-header__photo--logout {
+  margin: 0 0 0 10px;
+  width: 35px;
+  height: 35px;
+
+  @media (min-width: @desktop-width) {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.main-header__photo--logout:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.main-header__profile:hover .main-header__photo{
+  border: 3px solid @orange;
+  color: @orange;
+}
+
+.main-menu__list {
+  padding: 0 0 0 10%;
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: white;
+
+  @media (min-width: @desktop-width) {
+    width: 40%;
+    padding: 0 0 0 10%;
+  }
+}
+
+.main-menu__item {
+  padding: 0;
+  margin-right: 14px;
+}
+
+.main-menu__item--notions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.main-menu__notion {
+  margin-left: 5px;
+  text-align: center;
+  vertical-align: center;
+  font-size: 14px;
+  background-color: @orange;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+.main-menu__item--active {
+  border-bottom: 2px solid #0F0C34;
+}
+
+.main-menu__default {
+  text-decoration: none;
+  color: #242424;
+  font-weight: bold;
+  font-size: 16px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 21px;
+  }
+}

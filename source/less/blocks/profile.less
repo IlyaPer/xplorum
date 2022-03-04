@@ -1,0 +1,378 @@
+.person {
+  padding: 20px 10% 0 10%;
+  background-image: url("../img/background-desktop.webp");
+  background-size: cover;
+}
+
+.person__list {
+  margin: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+.person__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.person__info-container {
+  background-color: #FFFFFF;
+  flex-wrap: wrap;
+
+  @media (max-width: 320px) {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.person__title {
+  padding-left: 10%;
+}
+
+.person__applications-container {
+  width: 100%;
+}
+
+.person__background {
+  width: 100%;
+  margin: 0;
+}
+
+.person__photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  min-height: 200px;
+  border-radius: 50%;
+  border: 3px solid #ffd900;
+
+  @media (min-width: @desktop-width) {
+    width: 20%;
+  }
+}
+
+.person__photo--default {
+  @media (min-width: @desktop-width) {
+    background-image: url("../img/profile.svg");
+    background-size: cover;
+    width: 240px;
+    height: 240px;
+    text-align: center;
+    bottom: 0;
+  }
+}
+
+.person__skill {
+  border-radius: 20px;
+  margin-top: 25px;
+  width: 100%;
+  text-align: center;
+  background-color: #F3F3F3;
+  padding: 10px 0 0 0;
+}
+
+.person__skill-mini {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.person__skill-mini-container {
+  margin-right: 10%;
+}
+
+.search__subject--person {
+  transform: translateX(calc(100% - 60%));
+
+  @media (max-width: 320px) {
+    transform: translateX(0);
+  }
+}
+
+.person__skill-title {
+  font-size: 25px;
+}
+
+.person__icons-box {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 15%;
+  float: right;
+}
+
+.person__skill-icon {
+  width: 20px;
+  border: 1px solid @main-yellow;
+  padding: 5px;
+}
+
+.person__skill-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 2px 2px @main-yellow;
+}
+
+.person__skill-icon--app {
+  padding: 5px;
+  width: 25px;
+  margin-left: auto;
+  float: right;
+}
+
+.person__skill-icon:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 0 solid (@main-grey);
+}
+
+.person__description {
+  padding: 0 10% 0 10%;
+  font-size: 20px;
+}
+
+.person__info {
+  text-align: center;
+  width: 100%;
+}
+
+.person__info__photo-edit:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+  box-shadow: 2px 2px 2px 2px (black);
+}
+
+.person__info-heading {
+  font-size: 18px;
+
+  @media (min-width: @desktop-width) {
+    text-align: center;
+  }
+}
+
+.person__info-age {
+  font-size: 15px;
+
+  @media (min-width: @desktop-width) {
+    text-align: center;
+  }
+}
+
+.person__center-text {
+  text-align: center;
+}
+
+.person__skills-info {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: @desktop-width) {
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+}
+
+.person__skills-title {
+  text-align: center;
+  font-size: 20px;
+}
+
+.person__skills-wrapper {
+  width: 100%;
+
+  @media (min-width: @desktop-width) {
+    width: 50%;
+  }
+}
+
+.person__add-text {
+  text-align: center;
+  color: #c4c4c4;
+}
+
+.person__add-text:hover {
+  cursor: pointer;
+}
+
+.person__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: inherit;
+  padding: 10px;
+  border: 2px solid rgba(255,167,3,1);
+  border-radius: 10px;
+  color: rgba(255,167,3,1);
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 15px 25px 15px 25px;
+  }
+}
+
+.person__label {
+  width: 100%;
+  font-size: 20px;
+}
+
+.person__forms {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.person__form {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  flex-wrap: wrap;
+  background-color: @main-grey;
+  border-radius: 10px;
+
+  @media (min-width: @desktop-width) {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    background-color: @main-grey;
+    width: 45%;
+    padding: 25px;
+    border-radius: 10px;
+  }
+}
+
+.person__form-cancel {
+  display: block;
+  width: 18px;
+  margin-left: auto;
+}
+
+.person__form-cancel:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.person__input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  font-size: 20px;
+  width: 80%;
+}
+
+.person__input--number {
+  width: 20%;
+}
+
+.person__textarea {
+  background: transparent;
+  width: 80%;
+  font-size: 20px;
+}
+
+.person__form-container {
+  margin: 20px 0 10px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.person__form-input {
+  width: 100%;
+  border: none;
+  padding: 5px;
+}
+
+.person__app-description {
+  border: none;
+  width: 100%;
+  padding: 5px;
+}
+
+.person__submit-form {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 17px;
+  padding: 10px;
+  background-color: #E1E1E1;
+  border: 2px solid #B9B9B9;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #9D9D9D;
+}
+
+.person__submit-form--feedback {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 17px;
+  padding: 10px;
+  border: 2px solid rgba(255,167,3,1);
+  background: inherit;
+  border-radius: 10px;
+  color: rgba(255,167,3,1);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.person__submit-form--destroy {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 15%;
+  margin-bottom: 15px;
+}
+
+.person__app-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: @main-yellow;
+  border: none;
+  text-transform: uppercase;
+}
+
+.person__skill-title {
+  font-size: 16px;
+  font-weight: bold;
+  flex-grow: 3;
+}
+
+.person__skill-description {
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+.person__skill-hr {
+  width: 80%;
+  height: 2px;
+  background-color: @main-yellow;
+  border: none;
+}
+
+.person__skill-addbtn {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #eeeeee;
+  background-image: url("../img/plus.svg");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.person__skill-addbtn:hover {
+  box-shadow: 1px 1px 1px 0 (rgb(33%, 32%, 32%)),
+              1px 1px 1px 0 (rgb(33%, 32%, 32%));
+  cursor: pointer;
+}

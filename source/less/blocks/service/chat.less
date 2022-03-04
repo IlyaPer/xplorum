@@ -1,0 +1,261 @@
+.window-wrapper {
+  padding: 0 10% 0 10%;
+  background-image: url("../img/background-desktop.webp");
+  background-size: cover;
+  width: auto;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  min-height: 530px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.window-title{
+  padding: 14px;
+  position: relative;
+}
+.dots{
+  float: left;
+  width: 50px;
+}
+.window-title title{
+                     overflow: hidden;
+                     text-align: center;
+                     font-weight: bold;
+                   }
+.window-title  expand{
+                     position: absolute;
+                     right: 14px;
+                     top: 12px;
+                   }
+.dots  i{
+             margin-right: 2px;
+           }
+.dots  i:nth-child(1){
+             color: #f57e7d;
+           }
+.dots  i:nth-child(2){
+             color: #ffc881;
+           }
+.dots i:nth-child(3){
+             color: #82cf85;
+           }
+.expand  {
+  color: #cfd6e0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.chat__people-list {
+  list-style: none;
+  padding: 0 0 10px 0;
+}
+
+.chat__conversation-list {
+  height: 100%;
+}
+
+.chat__conversation-text {
+  color: black;
+  font-size: 21px;
+  margin: 10px 0 10px 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.chat__conversation-text:hover {
+  background-color: @main-yellow;
+  padding: 7px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.chat__conversation-text--active {
+  background-color: @main-yellow;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.chat__window {
+  display: block;
+  width: auto;
+  background-color: #FFFFFF;
+
+  @media (min-width: @desktop-width) {
+    min-height: 100vh;
+    border: 1px solid @main-grey;
+    border-left: 0;
+    width: 30%;
+  }
+}
+
+.chat__conversation-title {
+  padding-left: 20px;
+  font-size: 24px;
+}
+
+.chat__conversation-href {
+  color: black;
+  font-size: 14px;
+
+  @media (min-width: @desktop-width){
+    display: none;
+  }
+}
+
+.chat__area {
+  display: none;
+  background: #fff;
+
+  @media (min-width: @desktop-width) {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border-top: 1px solid #cfdae1;
+    order: 3;
+    box-shadow: inset 0 1px 3px rgba(207, 218, 225, 0.42)
+  }
+}
+
+.chat__conversation-area {
+  padding: 20px;
+  border-top: 1px solid @main-grey;
+  border-bottom: 1px solid @main-grey;
+}
+
+#chat__conversation-area:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.chat__area .title{
+  padding: 10px;
+  overflow: hidden;
+  line-height:15px;
+}
+
+.chat__area .title .fa-search{
+  font-size: 14px;
+  float: right;
+  color: #a8bbc6;
+  cursor: pointer;
+}
+
+.chat__area .chat-list{
+  position: relative;
+  width: 100%;
+  min-height: 80%;
+  border-top: 1px solid #cfdae1;
+  border-bottom: 1px solid #cfdae1;
+  overflow-y: auto;
+  outline: none;
+}
+
+.chat__area ul{
+  margin-right: -4px;
+}
+
+.chat__mini-container {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.chat__mini-container--user {
+  justify-content: flex-end;
+}
+
+.chat__area ul li:first-child {
+  border-top: none;
+}
+
+.chat__area ul .message p {
+  line-height: 20px;
+}
+
+.chat__area ul .message  p  .blue-label {
+  background: #6ea0ff;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.chat__msg-time {
+  float: right;
+  margin-right: 15px;
+  color: #738ba3;
+  font-size: 10px;
+}
+
+.chat__message {
+  @media (min-width: @desktop-width) {
+    max-width: 60%;
+  }
+}
+
+.chat__message--sender {
+  order: 2;
+}
+
+.chat__message-text {
+  background-color: @main-grey;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.chat__photo {
+  border-radius: 50%;
+  width: 8%;
+  height: 5%;
+}
+
+.chat__form {
+  display: none;
+  width: 50%;
+  position: fixed;
+  bottom: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat__form-img {
+  max-height: 40px;
+  margin-left: 15px;
+}
+
+.chat__input {
+  padding: 5px;
+  border-radius: 10px;
+  width: 2000px;
+  font-size: 15px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 20px;
+    padding: 15px;
+  }
+}
+
+.chat__submit {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.chat__main-dialog {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.jspDrag {
+  background: #A1AFC4;
+  border-radius: 10px;
+}
+.jspVerticalBar {
+  width: 7px;
+}
