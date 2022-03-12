@@ -1,0 +1,61 @@
+.user {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 10% 0 10%;
+}
+
+.user__desktop-mini-menu {
+  border-right: 1px solid #E1E1E1;
+  list-style: none;
+  margin: 15px 0 0 0;
+  padding: 0;
+  height: 100%;
+}
+
+.user__desktop-menu-item {
+  padding-left: 5%;
+}
+
+.user__desktop-menu-item:hover {
+  cursor: pointer;
+  background-color: @input-color;
+}
+
+.user__mini-item {
+  line-height: 30px;
+  background-image: url("../img/pen-mob.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    padding-left: 25px;
+    border: none;
+  }
+}
+
+.user__mini-item--apps {
+  background-image: url("../img/apps.svg");
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    border: none;
+  }
+}
+
+.user__mini-item--videos {
+  background-image: url("../img/videos.svg");
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    border: none;
+  }
+}
+
+.user__mini-item--sets {
+  background-image: url("../img/sets.svg");
+}
