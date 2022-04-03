@@ -1,0 +1,244 @@
+.user-info {
+  padding: 0 10% 0 10%;
+
+  @media (min-width: @desktop-width) {
+    padding: 0;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+.user__desktop-menu {
+  display: none;
+  background-color: white;
+  width: 25%;
+
+  @media (min-width: @desktop-width) {
+    display: block;
+  }
+}
+
+.user__desktop-img-container {
+  padding-left: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.user-info__header {
+  font-size: 12px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 24px;
+    padding-left: 5%;
+  }
+}
+
+.user-info__main-form {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-info__img {
+  position: absolute;
+  left: calc(40% + 10px);
+  margin-top: -54px;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+
+  @media (min-width: @desktop-width) {
+    display: none;
+  }
+}
+
+.user-info__img-desktop {
+  border-radius: 50%;
+  width: 67px;
+  height: 67px;
+  display: none;
+
+  @media (min-width: @desktop-width) {
+    display: block;
+  }
+}
+
+.user-info__heading {
+  font-size: 18px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.user-info__burger-container {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.user-info__bar1, .user-info__bar2, .user-info__bar3 {
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.user-info__burger-change .user-info__bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 3px) ;
+  transform: rotate(-45deg) translate(-6px, 3px) ;
+}
+
+.user-info__burger-change .user-info__bar2 {
+  opacity: 0;
+}
+
+.user-info__burger-change .user-info__bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -86px) ;
+  transform: rotate(45deg) translate(-6px, -6px) ;
+}
+
+.user-info__form {
+  background-color: #ffffff;
+  width: auto;
+  padding: 0 20px 10px 20px;
+
+  @media (min-width: @desktop-width) {
+    padding: 0 50px 10px 50px;
+  }
+}
+
+.user-info__form-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (min-width: @desktop-width) {
+    margin-top: 25px;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+}
+
+.user-info__label {
+  font-size: 10px;
+  line-height: 30px;
+  font-weight: bold;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 15px;
+  }
+}
+
+.user-info__input-container {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.user-info__edit-icon {
+  height: calc(100% - 5px);
+  display: block;
+  overflow: visible;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  background-color: @input-color;
+}
+
+.user-info__edit-icon:hover {
+  cursor: pointer;
+}
+
+.user-info__add-button {
+  margin-top: 10px;
+  font-size: 9px;
+  line-height: 30px;
+  width: 74px;
+  text-align: center;
+  background-color: @background-color;
+  border: none;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    width: auto;
+    padding: 4px 10px 4px 10px;
+  }
+}
+
+.user-info__add-button:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
+.user-info__input {
+  background-color: @input-color;
+  font-size: 9px;
+  line-height: 30px;
+  border: none;
+  padding: 0 0 0 10px;
+  width: 100%;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+  }
+}
+
+.user-info__subject {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
+.user-info__button {
+  width: 92px;
+  height: 34px;
+  font-size: 9px;
+  background-color: @input-color;
+  border: none;
+
+  @media (min-width: @desktop-width) {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 158px;
+    height: auto;
+    font-size: 18px;
+  }
+}
+
+.user-info__delete-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.user-info__submit {
+  display: block;
+  margin-right: auto;
+  margin-top: 5px;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 20px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 16px;
+    padding: 5px;
+  }
+}
+
+.user-info__submit:hover {
+  cursor: pointer;
+}

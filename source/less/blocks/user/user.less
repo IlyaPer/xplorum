@@ -1,7 +1,11 @@
 .user {
   display: flex;
   flex-wrap: nowrap;
-  padding: 0 10% 0 10%;
+  padding: 0 2% 0 2%;
+
+  @media (min-width: @desktop-width) {
+    padding: 0 5% 0 5%;
+  }
 }
 
 .user__desktop-mini-menu {
@@ -12,8 +16,19 @@
   height: 100%;
 }
 
+.user__desktop-menu {
+  width: 35%;
+}
+
 .user__desktop-menu-item {
+  display: flex;
   padding-left: 5%;
+  height: 43px;
+  align-self: center;
+}
+
+.user__desktop-menu-item--chosen {
+  background-color: @input-color;
 }
 
 .user__desktop-menu-item:hover {
@@ -22,6 +37,7 @@
 }
 
 .user__mini-item {
+  align-self: center;
   line-height: 30px;
   background-image: url("../img/pen-mob.svg");
   background-position: left;
@@ -58,4 +74,42 @@
 
 .user__mini-item--sets {
   background-image: url("../img/sets.svg");
+}
+
+.user__apps {
+  padding-left: 2%;
+
+  @media (min-width: @desktop-width) {
+    width: 80%;
+    background-color: white;
+    padding-right: 2%;
+  }
+}
+
+.user__apps-heading {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user__apps-text {
+  font-size: 12px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 24px;
+  }
+}
+
+.user__apps-button {
+  font-size: 10px;
+  border: 1px solid @main-color;
+  border-radius: 5px;
+  padding: -5px;
+  height: 18px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 14px;
+    height: 28px;
+  }
 }
