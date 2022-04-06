@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>Илья Ферштейн</title>
+</head>
+<body class="main-body">
+<svg style="display: none;">
+  <symbol width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="edit-icon">
+    <rect width="12" height="9" fill="url(#pattern0)"/>
+    <defs>
+      <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlink:href="#image0_21_148" transform="translate(0 -0.166667) scale(0.0111111 0.0148148)"/>
+      </pattern>
+      <image id="image0_21_148" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACbklEQVR4nO3cPU8UQRzH8S/oUfhWAGNiZbAw0hlfAK9BO42xMfGooMHYGFuIxMbC2FvoC/AlGB+QQs/GivAQoBhMCAzczO5//3uz+/sk090tc99M9mbvuAURERERERGZaDeAN8A2sAf8AtaBuTYn1TWPgQPgKDL2gYftTa07hsQDnx3P2ppgF6RGVuwaciMrdgVVIyt2hrqRFTuBVWTFvoR15P8jees3bfM6euslMJvywCsNT2RSfAKmgDvGx50GrgEfjI9bvCZOIT9dX0FBrGPv+k6/LJaxt5znXhyr2BveE2/b8GTkPqdO5APgusHci3E6mGfsRwZzL0Ys1GrmMZ5GjjFuPDeYezEuW41NxlZkmo+tyBcMy9iKPGZYxFbkxFEntiJnjipbv9znFM3ykjl3ZfdGE5+4KfYZTX0zotinNBlZsU94RO59bM/IbrEn7cvZIe3sWXda+JutaWMlH6GLEUW2psgOFNmBIjtQZAeK7ECRHSiyA0V2oMgOFNmBIjtQZAeK7ECRHSiyA0V2oMgOBsBNYBF4QvjhjEfkXv2bVswtFNnFgHB7HEV28Bedk118RZFdfEGnCxcf0Up28Q5FdrGGThcu7qLI5+TegWYeeEC4o8tFvgGfgRHwg3C1OCJs+3aAQ8JdW2KW6WjoXCvYrLpZ4B89WMlVTAHfsQvzwvBYnXIb2/PpksExOuk18Tevqj9LWERbuHMGhDc0y53CjNnsOuQ+47dlvf11k6W3pO2BFbumP6RfcCh2xNXEx+0nPGYLeE/4rEMqWiW+ekfAK2CBsM+WmmYIsbeB38AmcI+wGxEREREREZGSHQPj8GF34sUyJgAAAABJRU5ErkJggg=="/>
+    </defs>
+  </symbol>
+  <symbol width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="delete-icon">
+    <rect width="15" height="16" fill="url(#pattern0)"/>
+    <defs>
+      <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use xlink:href="#image0_21_127" transform="translate(-0.0333333) scale(0.0118519 0.0111111)"/>
+      </pattern>
+      <image id="image0_21_127" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAAD3UlEQVR4nO3cS2sUWRQH8P+pfkTc6G4UpqGqIWuXfgQJOIyKs/ExmZ2CqLgQxYXJbGbQgdnrRhTFheKDGQh+gpmlunAT0lULDe4UESrdnb7HhQbaph/Vt09unzTnB9l0pw6n/ylO9b1VBDDGGGOMMcYYpWjaDfRK03QXgD+Y+QSAH8Y8/D0RPQRwLUmSDfnu/JWn3UAvZr4J4Lzn4fuY+RKAEoCLcl1NLpp2A92YmQCcFii1+K2WGhM1s76+vntjY+MvACcB7JFpSZ2PAB5UKpXLtVot9y0y0ejI8/xvIjozSY0dYC+Ac61WqwzgrG8R79HBzBER/ep7/E5DRKeZ2TsvVTN6lnkHTUSOme9JNqMZM98jIud7/EQzulqtXmq3220Ap/B1ls2iDwDuV6vVK9NuxBhjjDFmNLGNl0ajwVK1NKnX6yIZ2cowEAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EAs6EC1Bt4joKhHt//ZzFUDTo06zT52WcK9eVDxNSkTXkyS50fXSjSzLXjvnngKYK1imGUXR0TiOV7rrrK2tERH9KdetHy1n9N3eF+I4XiGinwEUec65BeCXnpABAER0R6C/iWkJuq8kSV4Q0REMD7sF4Hi9Xv+n35vlcrm0Lc2NSUXQzrnfBr2XJMmLKIqOof/MbkZRdGRQyADQbrcXJXqclIqgiWg5y7KFQe/HcbwSRdFRfB92v5n8nSzLFohoSbJXXyqCBjDnnHvWaDR+GvQLPTN74EzekqbpIefcExS/mG4rLUEDQBXAo2Fn9tYYGTUusixbYObnAHZtR6M+ND5uMPTiNkqapoeY+RmEQp7lxw2qAB4PGyODSIcsSWPQgEfYmkMG9AYNjBG29pAB3UHPFM1BF74oFlxBTpXWoMf+5qE9bI1Be3+90xy2tqBH7l1kWbZQZFEDv/3sbaMp6MLL6jGX6ypoCbrQmdy1rC68XIeSM1tF0ES0NGoXrs/dljnn3NNRu37MvCzZqy8VQaPPHZYtI3bhRu762R2WAgqu+IauIO0OS5d+d1jG3OocOLO13GHRsk3aYualUql0FwA6nc4iES1j/E37JjMv99T5HV//EF6ktkm1BK3WLO9HzyQLOhALOhALOhALOhALOhALOhALOhDJoD8L1tLik1QhyaDfCNbSQuwziQVNRA+kaiki9pnEgt7c3LwF4JVUPQVe5nl+W6qY6D+zXl1d/bFUKv0L4IBk3Sl4WalUDtdqtXdSBUW/dczPz7/tdDoHAVwA8D921gXyM4D/AJzP8/ygZMjGGGOMMcYYY4wxs+YLaxx5oXP3scAAAAAASUVORK5CYII="/>
+    </defs>
+  </symbol>
+</svg>
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function close(id) {
+    document.getElementById(id).classList.toggle("hide");
+  }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+  function Edit(edit_id, delete_id) {
+    document.getElementById(edit_id).classList.toggle("show");
+    document.getElementById(delete_id).classList.toggle("hide");
+  }
+  function openBurgerMenu(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+
+  function inputFocus(inputId) {
+    document.getElementById(inputId).focus();
+  }
+</script>
+<header class="main-header">
+  <img class="main-header__heading" src="img/xplorus_white.svg" alt="explorex">
+  <div class="main-header__profile">
+    <img class="main-header__photo--logout" src="img/exit.svg" alt="выйти" aria-label="Выход из аккаунта">
+    <img class="main-header__photo--logout" src="img/menu-icon.svg" alt="меню" onclick="openBurgerMenu('mini-menu')" aria-label="Меню личного профиля">
+    <img class="main-header__photo" src="img/profile.jpg" alt="фото">
+  </div>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="main-menu__default" href="community.html">Главная</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="chat.html">Пользователи</a></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.html">Чат</a><button class="main-menu__notion">5</button></li>
+  </ul>
+  <ul class="main-header__mini-menu" id="mini-menu">
+    <li class="main-header__mini-item">
+      Личные данные
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--apps">
+      Заявки
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--videos">
+      Видео
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--sets">
+      Настройки
+    </li>
+  </ul>
+</section>
+<main class="user">
+  <section class="user__desktop-menu">
+    <div class="user__desktop-img-container">
+      <img class="user-info__img-desktop" src="img/profile.jpg" alt="фото профиля">
+      <h2 class="user-info__heading">Елена Шпортмахен</h2>
+    </div>
+    <ul class="user__desktop-mini-menu">
+      <li class="user__desktop-menu-item user__desktop-menu-item--chosen">
+        <div class="user__mini-item">
+          Личные данные
+        </div>
+      </li>
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item user__mini-item--apps">
+          Заявки
+        </div>
+      </li>
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item user__mini-item--videos">
+          Видео
+        </div>
+      </li>
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item user__mini-item--sets">
+          Настройки
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="user__apps">
+    <div class="user__apps-heading">
+      <h2 class="user__apps-text">Мои заявки</h2>
+      <button class="user__apps-button">Создать заявку</button>
+    </div>
+    <ul class="apps__list">
+      <li class="apps_item">
+        <a class="apps__href">
+          <picture class="apps__img apps__img--user">
+            <source media="(min-width: 1200px)" srcset="img/desktop-photo.jpg">
+            <img class="apps__img apps__img--user" alt="NAME" src="img/mob-photo.jpg">
+          </picture>
+          <div class="apps__content-container">
+            <div class="apps__head-content">
+              <h2 class="apps__heading">
+                Нужна помощь в подготовке к сочинению ЕГЭ
+              </h2>
+              <p class="apps__time">5 дней назад</p>
+            </div>
+            <div class="apps__subject">
+              Русский язык
+            </div>
+            <p class="apps__description">
+              Не понимаю падежи и как отличить причастие от дееяприячастия. Нужно подготовиться к написанию сочинения для ЕГЭ,буду сдавать экзамен в этом году, хочу хорошо подготовиться хочу хорошо подготовитьсяхочу хорошо подготовитьсяхочу хорошо подготовиться
+            </p>
+            <div class="apps__footer-container">
+              <div class="apps__subjects-container">
+                <p class="apps__subjects-heading">Помогу с:</p>
+                <div class="apps__subject">Математика</div>
+                <div class="apps__subject">Английский язык</div>
+              </div>
+              <div class="apps__feedback-container">
+                <button class="apps__button apps__button--favourite apps__button--user-favourite" id="app1" onclick="addToFavourite('app1')"></button>
+                <p class="apps__feedback-text">15</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="apps__container-deleter">
+          <img src="img/delete.svg" alt="delete">
+          <p class="apps__delete-text">Удалить завку</p>
+        </div>
+      </li>
+      <li class="apps_item">
+        <a class="apps__href">
+          <picture class="apps__img apps__img--user">
+            <source media="(min-width: 1200px)" srcset="img/desktop-photo.jpg">
+            <img class="apps__img apps__img--user" alt="NAME" src="img/mob-photo.jpg">
+          </picture>
+          <div class="apps__content-container">
+            <div class="apps__head-content">
+              <h2 class="apps__heading">
+                Нужна помощь в подготовке к сочинению ЕГЭ
+              </h2>
+              <p class="apps__time">5 дней назад</p>
+            </div>
+            <div class="apps__subject">
+              Русский язык
+            </div>
+            <p class="apps__description">
+              Не понимаю падежи и как отличить причастие от дееяприячастия. Нужно подготовиться к написанию сочинения для ЕГЭ,буду сдавать экзамен в этом году, хочу хорошо подготовиться хочу хорошо подготовитьсяхочу хорошо подготовитьсяхочу хорошо подготовиться
+            </p>
+            <div class="apps__footer-container">
+              <div class="apps__subjects-container">
+                <p class="apps__subjects-heading">Помогу с:</p>
+                <div class="apps__subject">Математика</div>
+                <div class="apps__subject">Английский язык</div>
+              </div>
+              <div class="apps__feedback-container">
+                <button class="apps__button apps__button--favourite" id="app1" onclick="addToFavourite('app1')"></button>
+                <p class="apps__feedback-text">15</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="apps__container-deleter">
+          <img src="img/delete.svg" alt="delete">
+          <p class="apps__delete-text">Удалить завку</p>
+        </div>
+      </li>
+      <li class="apps_item">
+        <a class="apps__href">
+          <picture class="apps__img apps__img--user">
+            <source media="(min-width: 1200px)" srcset="img/desktop-photo.jpg">
+            <img class="apps__img apps__img--user" alt="NAME" src="img/mob-photo.jpg">
+          </picture>
+          <div class="apps__content-container">
+            <div class="apps__head-content">
+              <h2 class="apps__heading">
+                Нужна помощь в подготовке к сочинению ЕГЭ
+              </h2>
+              <p class="apps__time">5 дней назад</p>
+            </div>
+            <div class="apps__subject">
+              Русский язык
+            </div>
+            <p class="apps__description">
+              Не понимаю падежи и как отличить причастие от дееяприячастия. Нужно подготовиться к написанию сочинения для ЕГЭ,буду сдавать экзамен в этом году, хочу хорошо подготовиться хочу хорошо подготовитьсяхочу хорошо подготовитьсяхочу хорошо подготовиться
+            </p>
+            <div class="apps__footer-container">
+              <div class="apps__subjects-container">
+                <p class="apps__subjects-heading">Помогу с:</p>
+                <div class="apps__subject">Математика</div>
+                <div class="apps__subject">Английский язык</div>
+              </div>
+              <div class="apps__feedback-container">
+                <button class="apps__button apps__button--favourite" id="app1" onclick="addToFavourite('app1')"></button>
+                <p class="apps__feedback-text">15</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="apps__container-deleter">
+          <img src="img/delete.svg" alt="delete">
+          <p class="apps__delete-text">Удалить завку</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+<footer class="page-footer">
+  <a href="mailto:" class="page-footer__text">info@taifun.ru</a>
+  <br class="page-footer__text">
+  <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+  <br class="page-footer__text">
+  <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+</footer>
+</body>
+</html>

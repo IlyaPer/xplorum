@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>Мои Видео</title>
+</head>
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function close(id) {
+    document.getElementById(id).classList.toggle("hide");
+  }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+  function Edit(edit_id, delete_id) {
+    document.getElementById(edit_id).classList.toggle("show");
+    document.getElementById(delete_id).classList.toggle("hide");
+  }
+  function openBurgerMenu(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+
+  function inputFocus(inputId) {
+    document.getElementById(inputId).focus();
+  }
+</script>
+<body class="main-body">
+<header class="main-header">
+  <img class="main-header__heading" src="img/xplorus_white.svg" alt="explorex">
+  <div class="main-header__profile">
+    <img class="main-header__photo--logout" src="img/exit.svg" alt="выйти" aria-label="Выход из аккаунта">
+    <img class="main-header__photo--logout" src="img/menu-icon.svg" alt="меню" onclick="openBurgerMenu('mini-menu')" aria-label="Меню личного профиля">
+    <img class="main-header__photo" src="img/profile.jpg" alt="фото">
+  </div>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="main-menu__default" href="community.html">Главная</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="chat.html">Пользователи</a></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.html">Чат</a><button class="main-menu__notion">5</button></li>
+  </ul>
+  <ul class="main-header__mini-menu" id="mini-menu">
+    <li class="main-header__mini-item">
+      Личные данные
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--apps">
+      Заявки
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--videos">
+      Видео
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--sets">
+      Настройки
+    </li>
+  </ul>
+</section>
+<main class="user">
+  <section class="user__desktop-menu">
+    <div class="user__desktop-img-container">
+      <img class="user-info__img-desktop" src="img/profile.jpg" alt="фото профиля">
+      <h2 class="user-info__heading">Елена Шпортмахен</h2>
+    </div>
+    <ul class="user__desktop-mini-menu">
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item">
+          Личные данные
+        </div>
+      </li>
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item user__mini-item--apps">
+          Заявки
+        </div>
+      </li>
+      <li class="user__desktop-menu-item user__desktop-menu-item--chosen">
+        <div class="user__mini-item user__mini-item--videos">
+          Видео
+        </div>
+      </li>
+      <li class="user__desktop-menu-item">
+        <div class="user__mini-item user__mini-item--sets">
+          Настройки
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section class="user-videos">
+    <h2 class="user-videos__heading">Мои видео</h2>
+    <div class="user-videos__container">
+      <h2 class="user-videos__heading user-videos__heading--desktop">Мои видео</h2>
+      <ul class="user-videos__list">
+        <li class="user-videos__item">
+          <p class="user-videos__settings">...</p>
+          <img class="user-videos__photo" src="img/video-promo.jpg" alt="video">
+          <h4 class="user-videos__heading">Разбор линий уровня</h4>
+          <div class="user-videos__subject">Математический анализ</div>
+          <p class="user-videos__views">30 просмотров</p>
+          <p class="user-videos__date">4 дня сука</p>
+        </li>
+        <li class="user-videos__item">
+          <p class="user-videos__settings">...</p>
+          <img class="user-videos__photo" src="img/video-promo.jpg" alt="video">
+          <h4 class="user-videos__heading">Разбор линий уровня</h4>
+          <div class="user-videos__subject">Математический анализ</div>
+          <p class="user-videos__views">30 просмотров</p>
+          <p class="user-videos__date">4 дня сука</p>
+        </li>
+        <li class="user-videos__item">
+          <p class="user-videos__settings">...</p>
+          <img class="user-videos__photo" src="img/video-promo.jpg" alt="video">
+          <h4 class="user-videos__heading">Разбор линий уровня</h4>
+          <div class="user-videos__subject">Математический анализ</div>
+          <p class="user-videos__views">30 просмотров</p>
+          <p class="user-videos__date">4 дня сука</p>
+        </li>
+        <li class="user-videos__item">
+          <p class="user-videos__settings">...</p>
+          <img class="user-videos__photo" src="img/video-promo.jpg" alt="video">
+          <h4 class="user-videos__heading">Разбор линий уровня</h4>
+          <div class="user-videos__subject">Математический анализ</div>
+          <p class="user-videos__views">30 просмотров</p>
+          <p class="user-videos__date">4 дня сука</p>
+        </li>
+        <li class="user-videos__item">
+          <p class="user-videos__settings">...</p>
+          <img class="user-videos__photo" src="img/video-promo.jpg" alt="video">
+          <h4 class="user-videos__heading">Разбор линий уровня</h4>
+          <div class="user-videos__subject">Математический анализ</div>
+          <p class="user-videos__views">30 просмотров</p>
+          <p class="user-videos__date">4 дня сука</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="page-footer">
+  <a href="mailto:" class="page-footer__text">info@taifun.ru</a>
+  <br class="page-footer__text">
+  <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+  <br class="page-footer__text">
+  <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+</footer>
+</body>
+</html>
+

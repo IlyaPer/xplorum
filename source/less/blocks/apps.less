@@ -1,0 +1,236 @@
+.apps {
+  padding: 0 5% 0 5%;
+  background-color: @background-color;
+
+  @media (min-width: @desktop-width) {
+    padding: 0 10% 0 10%;
+  }
+}
+
+.apps__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.apps_item {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.apps__href {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: white;
+  border: 1px solid #E1E1E1;
+  box-shadow: 0 2px 2px 1px rgb(0, 0, 0, 22%);
+}
+
+.apps__img {
+  width: 69px;
+
+  @media (min-width: @desktop-width) {
+    width: 161px;
+    height: 100%;
+  }
+}
+
+.apps__img--user {
+  width: 60px;
+  align-self: center;
+  padding-left: 2px;
+}
+
+.apps__content-container {
+  padding: 5px;
+  align-self: center;
+
+  @media (min-width: @desktop-width) {
+    padding: 10px 25px 0 15px;
+  }
+}
+
+.apps__head-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.apps__time {
+  color: @set-color;
+  font-size: 6px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 10px;
+  }
+}
+
+.apps__heading {
+  font-size: 11px;
+  margin: 0 0 3px 0;
+  width: 80%;
+
+  @media (min-width: @desktop-width) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}
+
+.apps__subject {
+  border: 1px solid @main-color;
+  font-size: 8px;
+  width: 62px;
+  text-align: center;
+  padding: 2px;
+  border-radius: 4px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 14px;
+    width: 122px;
+    flex-grow: 0;
+  }
+}
+
+.apps__description {
+  font-size: 8px;
+  margin-top: 3px;
+  margin-bottom: 0;
+
+  @media (min-width: @desktop-width) {
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.apps__footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: @desktop-width) {
+    margin-top: 45px;
+  }
+}
+
+.apps__subjects-container {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: @desktop-width) {
+    width: 380px;
+  }
+}
+
+.apps__subjects-heading {
+  font-size: 8px;
+  font-weight: bold;
+
+  @media (min-width: @desktop-width) {
+    font-size: 16px;
+  }
+}
+
+.apps__buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 19%;
+
+  @media (min-width: @desktop-width) {
+    width: 12%;
+  }
+}
+
+.apps__button {
+  border: none;
+  background-color: inherit;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 19px;
+  padding: 0;
+}
+
+.apps__button:hover {
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.apps__button--favourite {
+  background-image: url("../img/star-mob.svg");
+  height: 20px;
+
+  @media (min-width: @desktop-width) {
+    height: 50px;
+    width: 54px;
+    background-image: url("../img/star-desktop.svg");
+  }
+}
+
+.apps__button--user-favourite {
+  @media (min-width: @desktop-width) {
+    height: 30px;
+    width: 34px;
+    background-image: url("../img/star-active-desktop.svg");
+  }
+}
+
+.apps__button--favourite-active {
+  background-image: url("../img/star-active-mob.svg");
+
+  @media (min-width: @desktop-width) {
+    background-image: url("../img/star-active-desktop.svg");
+  }
+}
+
+.apps__button--send {
+  background-image: url("../img/send-mob.svg");
+  height: 20px;
+
+  @media (min-width: @desktop-width) {
+    height: 54px;
+    background-image: url("../img/send-desktop.svg");
+  }
+}
+
+.apps__feedback-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-self: center;
+}
+
+.apps__feedback-text {
+  align-self: center;
+  color: @set-color;
+  font-size: 6px;
+  margin: 0;
+
+  @media (min-width: @desktop-width) {
+    font-size: 10px;
+    margin: 5px;
+  }
+}
+
+.apps__container-deleter {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.apps__delete-text {
+  color: @set-color;
+  font-size: 8px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 12px;
+  }
+}

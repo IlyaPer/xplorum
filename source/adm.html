@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>ЗАЯВКИ</title>
+</head>
+<body class="main-body">
+<header class="main-header">
+  <img class="main-header__heading" src="../img/xplorus_white.svg" alt="explorex">
+  <a class="main-header__username" href="">
+    <div class="main-header__profile">
+      <h2 class="main-header__username"><a class="default" style="color:white;" href="logout.php">Выйти</a></h2>
+      <a href="<?= $person_url ?>"><img class="main-header__photo" src="img/profile.jpg" alt="фото"></a>
+    </div>
+  </a>
+</header>
+<main>
+  <section>
+    <h2>Список пользователей</h2>
+    <table border="1">
+      <caption>Таблица размеров обуви</caption>
+      <tr>
+        <th>id</th>
+        <th>Дата регистрации</th>
+        <th>Имя</th>
+        <th>Количество сессий</th>
+        <th>Активность</th>
+        <th>Действие</th>
+      </tr>
+      <tr>
+        <td>34,5</td><td>3,5</td><td>36</td><td>23</td>
+        <td>Заблокирован</td>
+        <td>
+          <a>Заблокировать</a>
+          <a>Написать</a>
+        </td>
+      </tr>
+      <tr><td>35,5</td><td>4</td><td>36⅔</td><td>23–23,5</td></tr>
+      <tr><td>36</td><td>4,5</td><td>37⅓</td><td>23,5</td></tr>
+      <tr><td>36,5</td><td>5</td><td>38</td><td>24</td></tr>
+      <tr><td>37</td><td>5,5</td><td>38⅔</td><td>24,5</td></tr>
+      <tr><td>38</td><td>6</td><td>39⅓</td><td>25</td></tr>
+      <tr><td>38,5</td><td>6,5</td><td>40</td><td>25,5</td></tr>
+      <tr><td>39</td><td>7</td><td>40⅔</td><td>25,5–26</td></tr>
+      <tr><td>40</td><td>7,5</td><td>41⅓</td><td>26</td></tr>
+      <tr><td>40,5</td><td>8</td><td>42</td><td>26,5</td></tr>
+      <tr><td>41</td><td>8,5</td><td>42⅔</td><td>27</td></tr>
+      <tr><td>42</td><td>9</td><td>43⅓</td><td>27,5</td></tr>
+      <tr><td>43</td><td>9,5</td><td>44</td><td>28</td></tr>
+      <tr><td>43,5</td><td>10</td><td>44⅔</td><td>28–28,5</td></tr>
+      <tr><td>44</td><td>10,5</td><td>45⅓</td><td>28,5–29</td></tr>
+      <tr><td>44,5</td><td>11</td><td>46</td><td>29</td></tr>
+      <tr><td>45</td><td>11,5</td><td>46⅔</td><td>29,5</td></tr>
+      <tr><td>46</td><td>12</td><td>47⅓</td><td>30</td></tr>
+      <tr><td>46,5</td><td>12,5</td><td>48</td><td>30,5</td></tr>
+      <tr><td>47</td><td>13</td><td>48⅔</td><td>31</td></tr>
+      <tr><td>48</td><td>13,5</td><td>49⅓</td><td>31,5</td></tr>
+    </table>
+    <h2>Список заявок</h2>
+    <table border="1">
+      <caption>Таблица размеров обуви</caption>
+      <tr>
+        <th>id</th>
+        <th>Дата создания</th>
+        <th>Название</th>
+        <th>Действие</th>
+      </tr>
+      <tr><td>34,5</td><td>3,5</td><td>36</td><td>23</td></tr>
+      <tr><td>35,5</td><td>4</td><td>36⅔</td><td>23–23,5</td></tr>
+      <tr><td>36</td><td>4,5</td><td>37⅓</td><td>23,5</td></tr>
+      <tr><td>36,5</td><td>5</td><td>38</td><td>24</td></tr>
+      <tr><td>37</td><td>5,5</td><td>38⅔</td><td>24,5</td></tr>
+      <tr><td>38</td><td>6</td><td>39⅓</td><td>25</td></tr>
+      <tr><td>38,5</td><td>6,5</td><td>40</td><td>25,5</td></tr>
+      <tr><td>39</td><td>7</td><td>40⅔</td><td>25,5–26</td></tr>
+      <tr><td>40</td><td>7,5</td><td>41⅓</td><td>26</td></tr>
+      <tr><td>40,5</td><td>8</td><td>42</td><td>26,5</td></tr>
+      <tr><td>41</td><td>8,5</td><td>42⅔</td><td>27</td></tr>
+      <tr><td>42</td><td>9</td><td>43⅓</td><td>27,5</td></tr>
+      <tr><td>43</td><td>9,5</td><td>44</td><td>28</td></tr>
+      <tr><td>43,5</td><td>10</td><td>44⅔</td><td>28–28,5</td></tr>
+      <tr><td>44</td><td>10,5</td><td>45⅓</td><td>28,5–29</td></tr>
+      <tr><td>44,5</td><td>11</td><td>46</td><td>29</td></tr>
+      <tr><td>45</td><td>11,5</td><td>46⅔</td><td>29,5</td></tr>
+      <tr><td>46</td><td>12</td><td>47⅓</td><td>30</td></tr>
+      <tr><td>46,5</td><td>12,5</td><td>48</td><td>30,5</td></tr>
+      <tr><td>47</td><td>13</td><td>48⅔</td><td>31</td></tr>
+      <tr><td>48</td><td>13,5</td><td>49⅓</td><td>31,5</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Чат</h2>
+    <div class="window-wrapper">
+      <div class="chat__window" id="dialogs">
+        <div class="chat__conversation-list">
+          <h2 class="chat__conversation-title">Сообщения</h2>
+          <ul class="chat__people-list">
+            <li class="chat__conversation-area"><a class="chat__conversation-text" href="#" id="">John Lock</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="chat__area" id="chat-area">
+        <a class="chat__conversation-href" href="">Назад</a>
+        <div class="chat__conversation-title"><b>Диалог:</b><i class="fa fa-search"></i></div>
+        <hr>
+        <div class="chat-list">
+          <ul class="chat__main-dialog" id="chat">
+            <li class="chat__mini-container chat__mini-container--user">
+              <div class="chat__message">
+                <p class="chat__message-text">
+                  Hello, Kid!
+                </p>
+                <span class="msg-time"></span>
+              </div>
+              <img class="chat__photo" src="img/elenasportmachen.jpg">
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <div class="chat__form" id="messForm">
+          <input class="chat__input" type="text" placeholder="Введите сообщение" name="content" id="content">
+          <button class="chat__form-img" id="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
