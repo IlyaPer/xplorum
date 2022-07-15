@@ -1,7 +1,7 @@
 {
-  "name": "explorex",
+  "name": "xplorum",
   "version": "1.0.0",
-  "description": "International platform explorex",
+  "description": "International platform xplorum",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.0.0",
     "autoprefixer": "10.2.5",
@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IlyaPer/taifun.git"
+    "url": "git+https://github.com/IlyaPer/xplorum.git"
   },
   "keywords": [
-    "explorex"
+    "xplorum"
   ],
   "author": "IlyaPer",
   "license": "ISC",
