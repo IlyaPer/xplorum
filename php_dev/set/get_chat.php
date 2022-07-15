@@ -1,14 +1,6 @@
 <?php
   require_once("../init.php");
 
-//  $array = [];
-//  $i = 0;
-//  foreach ($_GET as $g){
-//    $array[$i] = $g[0];
-//    $i = $i + 1;
-//  }
-//  var_dump($_GET['offset']);
-
   if (isset($_GET['receiverid'])) {
     $receiverid = intval($_GET['receiverid']) ?? 0;
   }
@@ -38,12 +30,6 @@ if ($offset === 0) {
   }
 
   $messages = mysqli_fetch_all($result_user_messages, MYSQLI_ASSOC);
-//  $i = 0;
-//  foreach ($messages as $rs) {
-//    $content = htmlspecialchars($rs['content']);
-//    $messages[$rs['content']] = $content;
-//  }
-  //array_walk_recursive($messages, "htmlspecialchars");
   $messages = secure($messages);
   echo json_encode($messages);
 }
@@ -63,15 +49,4 @@ else {
     echo json_encode(["status" => 200]);
   }
 }
-//  $sql_dialog = "SELECT * FROM messages WHERE user_id = '$id' AND reciever_id = '$recieverid' OR user_id = '$recieverid' AND reciever_id = '$id' ORDER BY date_creation DESC;";
-//  $result_user_messages = mysqli_query($connection, $sql_dialog);
-//  if (!$result_user_messages) {
-//    exit;
-//  }
-//  $messages = mysqli_fetch_all($result_user_messages, MYSQLI_ASSOC);
-//  var_dump($messages);
-//  file_put_contents('results.json', json_encode($messages));
-//  $fp = fopen('results.json', 'w');
-//    fwrite($fp, json_encode($messages));
-//  fclose($fp);
   ?>

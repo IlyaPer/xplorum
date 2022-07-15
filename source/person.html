@@ -126,55 +126,111 @@
       <hr>
       <section class="person__applications-container">
         <h2 class="person__title">Мои заявки</h2>
-        <ul class="people__list people__list--profile">
-          <li class="people__item people__item--main people__item--profile">
-            <a href="person.html" class="people__item people__item--profile">
-              <div class="people__info-container">
-                <div class="person__skill-mini">
-                  <h6 class="people__title people__title--profile">Прошу помочь мне с английским языком?</h6>
-                  <div class="person__icons-box">
-                    <picture>
-                      <source srcset="img/edit.svg" media="(min-width: 1000px)">
-                      <img class="person__skill-icon person__skill-icon--app" src="img/edit-mob.svg" alt="Edit">
-                    </picture>
-                  </div>
-                  </div>
-                  <div class="people__location-container people__location-container--profile">
-                    <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
-                    <h4 class="people__location-title">Зальзбург</h4>
-                  </div>
-                  <div>
-                    <button class="people__button people__button--profile">
-                      АНГЛИЙСКИЙ ЯЗЫК
-                    </button>
+        <ul class="person__applications-list">
+          <li class="person__app-item">
+            <a href="person.html" class="person__app">
+              <div class="person__app-edit-container">
+                <h6 class="person__app-title">Прошу помочь мне с английским языком? Прошу помочь мне с английским языком? Прошу помочь мне с английским языком? Прошу помочь мне с английским языком?Прошу помочь мне с английским языком?Прошу помочь мне с английским языком?</h6>
+                <div class="person__icons-box">
+                  <picture>
+                    <source srcset="img/edit.svg" media="(min-width: 1000px)">
+                    <img class="person__skill-icon person__skill-icon--app" src="img/edit.svg" alt="Edit">
+                  </picture>
+                  <a href="set/delete-app.php?id=<?= $app['app_id'] ?>">
+                    <img class="person__skill-icon person__skill-icon--app" src="img/delete.svg">
+                  </a>
                 </div>
-                <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
               </div>
+              <div class="person__location-container">
+                <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
+                <h4 class="people__location-title">Зальзбург</h4>
+              </div>
+              <div class="person__maxwidth-container">
+                <button class="people__button people__button--profile">
+                  АНГЛИЙСКИЙ ЯЗЫК
+                </button>
+              </div>
+              <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
             </a>
-          </li>
-          <li class="people__item people__item--main people__item--profile">
-            <a href="person.html" class="people__item people__item--profile">
-              <div class="people__info-container">
-                <div class="person__skill-mini">
-                  <h6 class="people__title people__title--profile">Прошу помочь мне с английским языком?</h6>
-                  <div class="person__icons-box">
-                    <picture>
-                      <source srcset="img/edit.svg" media="(min-width: 1000px)">
-                      <img class="person__skill-icon person__skill-icon--app" src="img/edit-mob.svg" alt="Edit">
-                    </picture>
-                  </div>
-                </div>
-                <div class="people__location-container people__location-container--profile">
-                  <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
-                  <h4 class="people__location-title">Зальзбург</h4>
-                </div>
-                <div>
-                  <button class="people__button people__button--profile">
-                    АНГЛИЙСКИЙ ЯЗЫК
-                  </button>
-                </div>
-                <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
+            <form class="person__form" id="myDropdown">
+              <img class="person__form-cancel" src="img/cancel-cross_icon-icons.com_71726.svg" alt="close" onclick="close('myDropdown')">
+              <div class="person__form-container">
+                <label for="app-title">
+                  Заголовок заявки
+                </label>
+                <input class="person__form-input" type="text" id="app-title" name="app-title" placeholder="Кратко напишите о том, в чем хотите получить помощь">
               </div>
+              <div class="person__form-container">
+                <label for="app-description">
+                  Содержание заявки
+                </label>
+                <textarea class="person__app-description" name="app-description" id="app-description" placeholder="Кратко напишите о том, в чем хотите получить помощь"></textarea>
+              </div>
+              <label for="app-subject">
+                Предмет заявки
+              </label>
+              <div class="person__form-container">
+                <select name="app-subject" id="app-subject">
+                  <option>Математика</option>
+                  <option>Русский язык</option>
+                  <option>Английский язык</option>
+                </select>
+              </div>
+              <input class="person__app-btn" type="submit" value="Опубликовать">
+            </form>
+            <form class="person__form" id="myDropdown1">
+              <div class="person__form-container">
+                <label for="app-title">
+                  Заголовок вопроса
+                </label>
+                <input class="person__form-input" type="text" id="app-title" name="app-title" placeholder="Кратко напишите о том, в чем хотите получить помощь">
+              </div>
+              <div class="person__form-container">
+                <label for="app-description">
+                  Описание вопроса
+                </label>
+                <textarea class="person__app-description" name="app-description" id="app-description" placeholder="Кратко напишите о том, в чем хотите получить помощь"></textarea>
+              </div>
+              <label for="app-subject">
+                Предмет заявки
+              </label>
+              <div class="person__form-container">
+                <select name="app-subject" id="app-subject">
+                  <option>Математика</option>
+                  <option>Русский язык</option>
+                  <option>Английский язык</option>
+                </select>
+              </div>
+              <div class="person__form-container">
+                <input type="file" value="Прикрепить фото">
+              </div>
+              <input class="person__app-btn" type="submit" value="Опубликовать">
+            </form>
+          </li>
+          <li class="person__app-item">
+            <a href="person.html" class="person__app">
+              <div class="person__app-edit-container">
+                <h6 class="person__app-title">Прошу помочь   bn</h6>
+                <div class="person__icons-box">
+                  <picture>
+                    <source srcset="img/edit.svg" media="(min-width: 1000px)">
+                    <img class="person__skill-icon person__skill-icon--app" src="img/edit.svg" alt="Edit">
+                  </picture>
+                  <a href="set/delete-app.php?id=<?= $app['app_id'] ?>">
+                    <img class="person__skill-icon person__skill-icon--app" src="img/delete.svg">
+                  </a>
+                </div>
+              </div>
+              <div class="person__location-container">
+                <img class="people__location-icon" src="img/location.svg" alt="Местоположение">
+                <h4 class="people__location-title">Зальзбург</h4>
+              </div>
+              <div class="person__maxwidth-container">
+                <button class="people__button people__button--profile">
+                  АНГЛИЙСКИЙ ЯЗЫК
+                </button>
+              </div>
+              <p class="people__description">Люблю заниматься армрестлингом, увлекаюсь вышиванием и игрой в керлинг. Не уважаю радикалов.</p>
             </a>
           </li>
         </ul>

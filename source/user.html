@@ -51,15 +51,82 @@
   function inputFocus(inputId) {
     document.getElementById(inputId).focus();
   }
+
+  function nextSlide(id) {
+    document.getElementById(id).remove();
+  }
+  function start() {
+    // window.location.href = '/user-apps.html';
+    document.getElementById('bannerLast').remove();
+  }
 </script>
 <header class="main-header">
   <img class="main-header__heading" src="../img/xplorus_white.svg" alt="explorex">
   <div class="main-header__profile">
     <img class="main-header__photo--logout" src="img/exit.svg" alt="выйти" aria-label="Выход из аккаунта">
-    <img class="main-header__photo--logout" src="img/menu-icon.svg" alt="меню" onclick="openBurgerMenu('mini-menu')" aria-label="Меню личного профиля">
+    <a href="user.php"><img class="main-header__photo--logout" src="img/menu-icon.svg" alt="меню" onclick="openBurgerMenu('mini-menu')" aria-label="Меню личного профиля"></a>
     <img class="main-header__photo" src="img/profile.jpg" alt="фото">
   </div>
 </header>
+  <div class="banner" id="banner">
+    <div class="banner__wrapper">
+      <h2 class="banner__title">Привет, рады видеть тебя!</h2>
+      <p class="banner__description">Заполни личный профиль, чтобы твой обмен знаниями был наиболее эффективным.</p>
+      <p class="banner__instructions">В личном кабинете зайди в раздел “Личные данные”</p>
+      <div class="main-header__mini-item main-header__mini-item--banner">
+          Личные данные
+      </div>
+      <p class="banner__instructions">Укажи предметы, с которыми можешь помочь</p>
+      <img>
+      <div class="banner__bottom-container">
+        <div class="banner__slider">
+          <img src="img/banner.jpg" alt="banner">
+        </div>
+        <p class="banner__instructions">Чем подробнее будет описание предмета, тем быстрее ты найдешь партнера по обмену знаниями.</p>
+        <div class="banner__container">
+          <a class="banner__submit banner__submit--cancel close" onclick="nextSlide('banner')" href="#">Дальше</a>
+          <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5" cy="5" r="4.5" fill="black" stroke="black"/>
+            <circle cx="22.5" cy="5" r="4.5" fill="white" stroke="black"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner" id="bannerLast">
+    <div class="banner__wrapper">
+      <h2 class="banner__title">Заявки</h2>
+      <p class="banner__description">Опубликуй заявку, чтобы начать поиск study друга.</p>
+      <p class="banner__instructions">В личном кабинете зайди в раздел “Мои заявки”</p>
+      <div class="main-header__mini-item user__mini-item--apps main-header__mini-item--banner">
+        Заявки
+      </div>
+      <p class="banner__instructions">Заполни форму</p>
+      <img>
+      <div class="banner__bottom-container">
+        <div class="banner__slider">
+          <img src="img/banner.jpg" alt="banner">
+        </div>
+        <p class="banner__instructions">Опиши подробно, в чем хочешь получить помощь: какие темы непонятны, где не хватает практики.</p>
+        <div class="banner__container">
+          <a class="banner__submit banner__submit--cancel closeBanner" onclick="start()" href="#">Начнем!</a>
+          <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5" cy="5" r="4.5" fill="white" stroke="black"/>
+            <circle cx="22.5" cy="5" r="4.5" fill="black" stroke="black"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="banner" id="deleteAccount">
+  <div class="banner__wrapper">
+    <h2>Удаление аккаунта</h2>
+    <p class="banner__description">Нам очень жаль, что у вас появилась такая потребность.</p>
+    <p class="banner__instructions">На текущий момент сайт работает в тестовом режиме. Во избежание технических неполадок, для удаления аккаунта просим написать на почту <a href="mailto:info@explorex.ru">info@explorex.ru</a></p>
+    <p class="banner__instructions">Просим прощения за неудобства!</p>
+    <a class="close" href="#" onclick="nextSlide('deleteAccount')">Отменить</a>
+  </div>
+</div>
 <section class="main-menu">
   <ul class="main-menu__list">
     <li class="main-menu__item"><a class="main-menu__default" href="community.html">Главная</a></li>
@@ -111,9 +178,12 @@
     </ul>
   </section>
   <section class="user-info">
-    <h2 class="user-info__header">Личные данные</h2>
+    <div class="user-info__desktop-img-container">
+      <h2 class="user-info__heading">Елена Шпортмахен</h2>
+      <img class="user-info__img-desktop" src="img/profile.jpg" alt="фото профиля">
+    </div>
+    <p>Эти данные видны только людям, откликнувшимся на вашу заявку.</p>
     <form class="user-info__form">
-      <img class="user-info__img" src="img/profile.jpg" alt="фото профиля">
       <div class="user-info__form-container">
         <label for="name" class="user-info__label">
           Имя
@@ -158,9 +228,10 @@
           </picture>
         </div>
       </div>
+    </form>
       <hr>
       <div class="user-info__subjects-container">
-        <h2 class="user-info__label">Владею предметами</h2>
+        <h2 class="user-info__label">Разбираюсь с предметами:</h2>
         <div class="user-info__subject">
           <button class="user-info__button">
             Математика
@@ -178,10 +249,33 @@
             <img src="img/pen-mob.svg" alt="edit">
           </picture>
         </div>
-        <button class="user-info__add-button" onclick="sendNewSubject()">+ Добавить</button>
+        <a class="user-info__add-button" href="#new-sub">+ Добавить</a>
+        <div class="user__form-container" id="new-sub">
+          <form class="user__app-form">
+            <h2 class="user__form-title">Добавление предмета в профиль</h2>
+            <p  class="user__form-description">В каждой заявке высвечивается, в каких предметах ты разбираешься. Напиши подробно о том, в чем ты силен, чтобы быстрее найти человека, с которым ты обменяешься знаниями по заявке.</p>
+            <div class="user__max-width">
+              <label class="user__label">Предмет</label>
+              <select class="user__label">
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Физика</option>
+                <option>Информатика</option>
+              </select>
+            </div>
+            <div class="user__label">
+              <label class="user__label">Описание навыков</label>
+              <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите проблему. Например: Я не понимаю, как решать параметр через производную."></textarea>
+            </div>
+            <div class="user__max-width">
+              <input class="user__submit" type="submit" value="Добавить" onclick="sendNewSubject()">
+              <a class="user__submit user__submit--cancel close" href="#">Отменить</a>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="user-info__subjects-container">
-        <h2 class="user-info__label">Хочу разобраться с:</h2>
+        <h2 class="user-info__label">Хочу разобраться с предметами:</h2>
         <div class="user-info__subject">
           <button class="user-info__button">
             Математика
@@ -202,14 +296,37 @@
             <img src="img/pen-mob.svg" alt="edit">
           </picture>
         </div>
-        <button class="user-info__add-button" onclick="sendNewSubject()">+ Добавить</button>
-        <input type="submit" class="user-info__submit" value="Сохранить">
+        <a class="user-info__add-button" href="#new-help">+ Добавить</a>
+        <div class="user__form-container" id="new-help">
+          <form class="user__app-form">
+            <h2 class="user__form-title">Добавление предмета в профиль</h2>
+            <p>В каждой заявке высвечивается, в каких предметах ты разбираешься. Напиши подробно о том, в чем ты силен, чтобы быстрее найти человека, с которым ты обменяешься знаниями по заявке.</p>
+            <div class="user__max-width">
+              <label class="user__max-width">Предмет</label>
+              <select>
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Физика</option>
+                <option>Информатика</option>
+              </select>
+            </div>
+            <div class="user__max-width">
+              <label class="user__max-width">Описание трудностей</label>
+              <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите проблему. Например: Я не понимаю, как решать параметр через производную."></textarea>
+            </div>
+            <div class="user__max-width">
+              <input class="user__submit" type="submit" value="Добавить" onclick="sendNewSubject()">
+              <a class="user__submit user__submit--cancel close" href="#">Отменить</a>
+            </div>
+          </form>
+        </div>
+        <p></p>
+        <a class="user__apps-button" href="#deleteAccount">Удалить аккаунт</a>
       </div>
-    </form>
   </section>
 </main>
 <footer class="page-footer">
-  <a href="mailto:" class="page-footer__text">info@taifun.ru</a>
+  <a href="mailto:info@explorex.ru" class="page-footer__text">info@explorex.ru</a>
   <br class="page-footer__text">
   <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
   <br class="page-footer__text">

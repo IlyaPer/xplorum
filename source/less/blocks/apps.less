@@ -23,26 +23,55 @@
 }
 
 .apps__href {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  //display: flex;
+  //flex-wrap: nowrap;
   background-color: white;
   border: 1px solid #E1E1E1;
-  box-shadow: 0 2px 2px 1px rgb(0, 0, 0, 22%);
 }
 
 .apps__img {
+  display: block;
+  margin: 5% auto 0;
   width: 69px;
+  border-radius: 50%;
 
   @media (min-width: @desktop-width) {
     width: 161px;
-    height: 100%;
   }
 }
 
+.apps__name {
+  font-size: 10px;
+  margin-left: 10%;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (min-width: @desktop-width) {
+    font-size: 24px;
+  }
+}
+
+.apps__name--additional {
+  color: #E1E1E1;
+  margin-left: 10%;
+  margin-top: 0;
+}
+
 .apps__img--user {
-  width: 60px;
-  align-self: center;
+  display: block;
+  margin-right: auto;
+  margin-bottom: auto;
+  width: 100%;
+  height: 50%;
+  border-radius: 50%;
   padding-left: 2px;
+
+  @media (min-width: @desktop-width) {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .apps__content-container {
@@ -112,6 +141,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   @media (min-width: @desktop-width) {
     margin-top: 45px;
@@ -121,12 +151,15 @@
 .apps__subjects-container {
   width: 75%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   @media (min-width: @desktop-width) {
     width: 380px;
   }
+}
+
+.apps__subjects-container > * {
+  margin: 3px;
 }
 
 .apps__subjects-heading {
@@ -139,6 +172,7 @@
 }
 
 .apps__buttons-container {
+  margin: 0;
   display: flex;
   justify-content: space-between;
   width: 19%;
@@ -149,18 +183,39 @@
 }
 
 .apps__button {
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  flex-shrink: 0;
   border: none;
   background-color: inherit;
+  background-image: url("../img/feed-mob.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 19px;
   padding: 0;
+
+  @media (min-width: @desktop-width) {
+    width: 57px;
+    height: 57px;
+    background-image: url("../img/feed-desktop.svg");
+  }
+}
+
+.apps__button--active {
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/feed-active-mob.svg");
+
+  @media (min-width: @desktop-width) {
+    width: 57px;
+    height: 57px;
+    background-image: url("../img/feed-active-desktop.svg");
+  }
 }
 
 .apps__button:hover {
   cursor: pointer;
-  transform: scale(0.7);
+  transform: scale(0.99);
 }
 
 .apps__button--favourite {
@@ -224,6 +279,17 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-end;
+}
+
+.apps__container-deleter:hover .apps__delete-text{
+  cursor: pointer;
+  transform: scale(0.95);
+  color: black;
+}
+
+.apps__container-deleter:hover .apps__delete-icon {
+  cursor: pointer;
+  transform: scale(0.95);
 }
 
 .apps__delete-text {

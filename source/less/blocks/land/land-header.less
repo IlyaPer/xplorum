@@ -1,0 +1,144 @@
+.land-header__container {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 59px;
+  width: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.land-header__logotype {
+  width: 61px;
+  display: block;
+
+  @media (min-width: @desktop-width) {
+    width: 177px;
+  }
+}
+
+.land-header__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 32px;
+  font-family: "Exo", "Exo2-Medium", sans-serif;
+  background-color: inherit;
+  border: 1px solid rgb(255, 255, 255, 51%);
+  line-height: 10.8px;
+  color: rgb(255, 255, 255, 51%);
+  border-radius: 20px;
+  padding: 5px 10px 5px 10px;
+  font-size: 12px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 24px;
+    height: 100%;
+  }
+}
+
+.land-header__button--black {
+  border: 1px solid rgb(1, 1, 1, 1);
+  color: rgb(1, 1, 1, 1);
+  margin: 10px 0 0 0;
+
+  @media (min-width: @desktop-width) {
+    height: 40px;
+    padding: 14px;
+  }
+}
+
+.land-header__button:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 4px 0 (rgb(0, 0, 0, 25%)),
+    0 -3px 4px 0 (#FFFFFF),
+  -3px 0 4px 0 (#FFFFFF),
+  -3px 3px 4px 0 (#FFFFFF),
+  3px 3px 4px 1px (#FFFFFF);
+  transform: scale(1.04);
+  transition-duration: 1s;
+}
+
+.land-header__heading {
+  margin-top: 25%;
+  font-family: "Exo", "Exo2-Bold", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 4px;
+
+  @media (min-width: @desktop-width) {
+    margin-top: 15%;
+    text-align: left;
+    font-size: 54px;
+    width: 568px;
+  }
+}
+
+.land-header__description {
+  display: block;
+  margin: 0 auto;
+  font-family: "Exo", "Exo2-Regular", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  width: calc(239/375 * 100%);
+
+  @media (min-width: @desktop-width) {
+    font-size: 32px;
+    width: 480px;
+    text-align: left;
+    margin-left: 0;
+  }
+}
+
+.land-header__form {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  width: 75%;
+  height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  @media (min-width: @desktop-width) {
+    margin-top: 35px;
+    margin-left: 0;
+    width: 50%;
+    height: 65px;
+  }
+}
+
+.land-header__form--bottom {
+  width: 100%;
+}
+
+.land-header__main-photo {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40%;
+}
+
+.land-header__view-button {
+  font-family: "Exo", "Exo2-Light", sans-serif;
+  font-size: 12px;
+  height: 32px;
+  margin-top: 10px;
+  width: auto;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.17);
+  color: rgba(255, 255, 255, 0.46);
+  border: none;
+
+  @media (min-width: @desktop-width) {
+    font-size: 15px;
+  }
+}
+
+.land-header__view-button:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+}

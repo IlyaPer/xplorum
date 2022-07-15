@@ -36,28 +36,41 @@
       <li class="main-menu__item"><a class="main-menu__default" href="search.html">Чат</a></li>
     </ul>
   </section>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <div class="window-wrapper">
-<!--    <div class="chat__window" id="dialogs">-->
-<!--      <div class="chat__conversation-list">-->
-<!--        <h2 class="chat__conversation-title">Сообщения</h2>-->
-<!--        <ul class="chat__people-list">-->
-<!--          <li class="chat__conversation-area"><a class="chat__conversation-text chat__conversation-text&#45;&#45;active" onclick="Edit('chat', 'dialogs')">Elena Sportmachen</a></li>-->
-<!--          <li class="chat__conversation-area"><a class="chat__conversation-text" id="3">Jan Dvořák</a></li>-->
-<!--          <li class="chat__conversation-area" id="3"><a class="chat__conversation-text" href="">Clark Kent</a></li>-->
-<!--          <li class="chat__conversation-area" id="4"><a class="chat__conversation-text" href="">Ioana Marcu</a></li>-->
-<!--        </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-    <div class="chat__area">
-        <div class="chat__conversation-title"><b>Диалог:</b><i class="fa fa-search"></i></div>
-        <div class="chat-list">
-          <ul class="chat__main-dialog" id="chat">
-          </ul>
-          <div class="chat__form" id="messForm" style="display: block;">
-          <input class="chat__input" type="text" placeholder="Введите сообщение" name="content" id="content">
-          <button class="chat__form-img" id="submit" onclick="sendmes()">Send</button>
-        </div>
+    <div class="chat__window" id="dialogs">
+      <div class="chat__conversation-list">
+        <h2 class="chat__conversation-title">Сообщения</h2>
+        <ul class="chat__people-list">
+          <li class="chat__conversation-area"><a class="chat__conversation-text" href="#" id="">John Lock</a></li>
+          <li class="chat__conversation-area"><a class="chat__conversation-text" href="#">Техподдержка</a></li>
+        </ul>
       </div>
+    </div>
+    <div class="chat__area" id="chat-area">
+      <a class="chat__conversation-href" href="">Назад</a>
+      <div class="chat__conversation-title"><b>Диалог:</b><i class="fa fa-search"></i></div>
+      <hr>
+      <div class="chat-list">
+        <ul class="chat__main-dialog" id="chat">
+          <li class="chat__mini-container chat__mini-container--user">
+            <div class="chat__message">
+              <p class="chat__message-text">
+                Hello, Kid!
+              </p>
+              <span class="msg-time"></span>
+            </div>
+            <img class="chat__photo" src="img/elenasportmachen.jpg">
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="chat__form" id="messForm">
+        <input class="chat__input" type="text" placeholder="Введите сообщение" name="content" id="content">
+        <button class="chat__form-img" id="submit">Send</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>

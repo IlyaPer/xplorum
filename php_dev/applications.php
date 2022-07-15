@@ -9,6 +9,13 @@
   }
   $subjects = mysqli_fetch_all($result_subjects, MYSQLI_ASSOC);
 
+  $sql_feeds = "SELECT appId FROM feeds WHERE userId=" . $_SESSION['user_id'] . ";";
+  $result_subjects = mysqli_query($connection, $sql_feeds);
+  if (!$result_subjects) {
+    exit;
+  }
+  $feeds = mysqli_fetch_all($result_subjects, MYSQLI_ASSOC);
+
   $result = mysqli_query($connection, "SELECT COUNT(*) as cnt, id FROM applications group by id;");
   $app_count = mysqli_fetch_all($result, MYSQLI_ASSOC);
   $items_count = count($app_count);
@@ -30,7 +37,7 @@
     header("Location: ../pages/404.html");
   }
 
-  $sql_applications = 'SELECT date_creation, applications.title, content, applications.url, user_id, subject_id, users.id, subjects.id, subjects.title AS main_title, subjects.color_hex_id FROM applications JOIN users ON user_id = users.id JOIN subjects ON subjects.id = subject_id
+  $sql_applications = 'SELECT applications.id as AppId, date_creation, applications.title, content, applications.url, user_id, subject_id, users.id AS mainId, users.url AS photo, users.name AS author, subjects.id, subjects.title AS main_title, subjects.color_hex_id FROM applications JOIN users ON user_id = users.id JOIN subjects ON subjects.id = subject_id
      ORDER BY date_creation  DESC LIMIT ' . $page_items . ' OFFSET ' . $offset;
   $result_applications = mysqli_query($connection, $sql_applications);
   if (!$result_applications) {
@@ -56,7 +63,7 @@
       header("Location: pages/404.html");
     }
     // запрос на показ девяти лотов
-    $sql = 'SELECT date_creation, applications.title, content, applications.url, user_id, subject_id, users.id, subjects.id, subjects.title AS main_title, subjects.color_hex_id FROM applications JOIN users ON user_id = users.id JOIN subjects ON subjects.id = subject_id
+    $sql = 'SELECT applications.id as AppId, date_creation, applications.title, content, applications.url, user_id, subject_id, users.id AS mainId, users.url AS photo, users.name AS author, subjects.id, subjects.title AS main_title, subjects.color_hex_id FROM applications JOIN users ON user_id = users.id JOIN subjects ON subjects.id = subject_id
      WHERE subject_id = ' . $subject_id . '
      ORDER BY date_creation DESC LIMIT ' . $page_items . ' OFFSET ' . $offset;
     $applications = mysqli_query($connection, $sql);
@@ -66,7 +73,9 @@
         'pages' => $pages,
         'pages_count' => $pages_count,
         'current_page' => $current_page,
-        'subjects' => $subjects
+        'subjects' => $subjects,
+        'feeds' => $feeds,
+        'connection' => $connection
       ];
     }
   }
@@ -76,7 +85,9 @@
       'pages' => $pages,
       'pages_count' => $pages_count,
       'current_page' => $current_page,
-      'subjects' => $subjects
+      'subjects' => $subjects,
+      'feeds' => $feeds,
+      'connection' => $connection
     ];
   }
   $content = include_template('applications.php', $tpl_data);

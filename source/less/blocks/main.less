@@ -1,7 +1,8 @@
 .main-body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Exo", "Exo2-Regular", sans-serif;
+  background-color: @background-color;
 }
 
 .wrapper {
@@ -48,22 +49,89 @@
 }
 
 .main-header__photo {
-  border: 3px solid #FFFFFF;
-  margin: 0 0 0 10px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+  display: none;
 
   @media (min-width: @desktop-width) {
+    display: block;
     width: 55px;
     height: 55px;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    margin: 0 0 0 10px;
   }
 }
 
+.main-header__mini-menu {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  right: 10%;
+  top: 40px;
+  background-color: @input-color;
+  list-style: none;
+  width: 120px;
+  margin: 0;
+  padding-right: 20px;
+
+  @media (min-width: @desktop-width) {
+    width: 200px;
+    padding-right: 0;
+    top: 70px;
+  }
+}
+
+.main-header__mini-item {
+  line-height: 30px;
+  background-image: url("../img/pen-mob.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    padding-left: 25px;
+    border: none;
+  }
+}
+
+.main-header__mini-item--banner {
+  border-bottom: none;
+}
+
+.main-header__mini-item:hover {
+  cursor: pointer;
+  background-color: @input-color;
+}
+
+.main-header__mini-item--apps {
+  background-image: url("../img/apps.svg");
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    border: none;
+  }
+}
+
+.main-header__mini-item--videos {
+  background-image: url("../img/videos.svg");
+  border-bottom: 1px solid @hr-color;
+
+  @media (min-width: @desktop-width) {
+    border: none;
+  }
+}
+
+.main-header__mini-item--sets {
+  background-image: url("../img/sets.svg");
+}
+
 .main-header__photo--logout {
-  margin: 0 0 0 10px;
-  width: 35px;
-  height: 35px;
+  margin: 10px 0 10px 10px;
+  width: 20px;
+  height: 20px;
 
   @media (min-width: @desktop-width) {
     width: 25px;
@@ -77,8 +145,8 @@
 }
 
 .main-header__profile:hover .main-header__photo{
-  border: 3px solid @orange;
-  color: @orange;
+  border: 3px solid @main-color;
+  color: @main-color;
 }
 
 .main-menu__list {
@@ -111,7 +179,7 @@
   text-align: center;
   vertical-align: center;
   font-size: 14px;
-  background-color: @orange;
+  background-color: @main-color;
   color: #FFFFFF;
   border: 1px solid #FFFFFF;
   border-radius: 50%;
@@ -125,7 +193,7 @@
   text-decoration: none;
   color: #242424;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
 
   @media (min-width: @desktop-width) {
     font-size: 21px;

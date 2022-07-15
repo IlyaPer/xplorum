@@ -14,7 +14,11 @@
 
 .people__list-heading {
   padding-left: 10%;
-  font-size: 34px;
+  font-size: 20px;
+
+  @media(min-width: @desktop-width) {
+    font-size: 34px;
+  }
 }
 
 .people__list--profile {
@@ -91,10 +95,13 @@
   }
 }
 
-.people__title--profile {
-  width: 70%;
-  font-size: 20px;
-  text-align: left;
+.people__feedback {
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.people__feedback:hover {
+  transform: scale(1.15);
 }
 
 .people__age {
@@ -157,7 +164,6 @@
 }
 
 .people__location-container {
-  margin-left: auto;
   margin-right: auto;
   width: 80px;
   display: flex;

@@ -47,6 +47,10 @@
   function openBurgerMenu(id) {
     document.getElementById(id).classList.toggle("show");
   }
+  function openFlexElement(id, toHide) {
+    document.getElementById(id).classList.toggle("show");
+    document.getElementById(toHide).classList.toggle("shadow");
+  }
 
   function inputFocus(inputId) {
     document.getElementById(inputId).focus();
@@ -110,10 +114,36 @@
       </li>
     </ul>
   </section>
-  <section class="user__apps">
+  <section class="user__apps" id="my-apps">
     <div class="user__apps-heading">
       <h2 class="user__apps-text">Мои заявки</h2>
-      <button class="user__apps-button">Создать заявку</button>
+      <a class="user__apps-button" href="#new-app">Создать заявку</a>
+      <div class="user__form-container" id="new-app">
+        <form class="user__app-form">
+          <h2 class="user__form-title">Публикация заявки</h2>
+          <div class="user__max-width">
+            <label class="user__max-width">Название заявки</label>
+            <input class="user__max-width" type="text" name="app-title" placeholder="Например: прошу помочь с экстремумами функции">
+          </div>
+          <div class="user__max-width">
+            <label class="user__max-width">Предмет заявки</label>
+            <select>
+              <option>Математика</option>
+              <option>Русский язык</option>
+              <option>Физика</option>
+              <option>Информатика</option>
+            </select>
+          </div>
+          <div class="user__max-width">
+            <label class="user__max-width">Содержание заявки</label>
+            <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите проблему. Например: Я не понимаю, как решать параметр через производную."></textarea>
+          </div>
+          <div class="user__max-width">
+            <input class="user__submit" type="submit" value="Опубликовать">
+            <a class="user__submit user__submit--cancel" href="#" class="close">Отменить</a>
+          </div>
+        </form>
+      </div>
     </div>
     <ul class="apps__list">
       <li class="apps_item">
@@ -137,7 +167,7 @@
             </p>
             <div class="apps__footer-container">
               <div class="apps__subjects-container">
-                <p class="apps__subjects-heading">Помогу с:</p>
+                <p class="apps__subjects-heading">Знаю:</p>
                 <div class="apps__subject">Математика</div>
                 <div class="apps__subject">Английский язык</div>
               </div>
@@ -149,7 +179,7 @@
           </div>
         </a>
         <div class="apps__container-deleter">
-          <img src="img/delete.svg" alt="delete">
+          <img class="apps__delete-icon" src="img/delete.svg" alt="delete">
           <p class="apps__delete-text">Удалить завку</p>
         </div>
       </li>
@@ -228,6 +258,7 @@
         </div>
       </li>
     </ul>
+    <p class="user__text-helpfull">У вас пока нет опубликованных заявок.</p>
   </section>
 </main>
 <footer class="page-footer">

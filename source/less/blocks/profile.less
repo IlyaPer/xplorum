@@ -35,9 +35,64 @@
   width: 100%;
 }
 
+.person__applications-list {
+  padding: 10px 10% 0 10%;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.person__app-item {
+  width: 90%;
+  background-color: @main-grey;
+  margin-top: 15px;
+  padding: 0 0 0 20px;
+}
+
+.person__app {
+  background-color: @main-grey;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  text-decoration: none;
+  color: #000000;
+  padding: 0 0 0 20px;
+}
+
+.person__app-edit-container {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.person__app-title {
+  width: 70%;
+  font-size: 20px;
+  text-align: left;
+  margin: 10px 0 0 0;
+}
+
 .person__background {
   width: 100%;
   margin: 0;
+}
+
+.person__location-container {
+  margin-right: auto;
+  width: 80px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+.person__maxwidth-container {
+  width: 100%;
 }
 
 .person__photo {
@@ -47,7 +102,7 @@
   width: 90%;
   min-height: 200px;
   border-radius: 50%;
-  border: 3px solid #ffd900;
+  border: 3px solid @main-color;
 
   @media (min-width: @desktop-width) {
     width: 20%;
@@ -75,6 +130,7 @@
 }
 
 .person__skill-mini {
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -99,6 +155,8 @@
 
 .person__icons-box {
   display: flex;
+  margin-left: auto;
+  margin-right: 20px;
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 15%;
@@ -107,25 +165,24 @@
 
 .person__skill-icon {
   width: 20px;
-  border: 1px solid @main-yellow;
   padding: 5px;
 }
 
 .person__skill-icon:hover {
   transform: scale(1.1);
-  box-shadow: 2px 2px 2px 2px @main-yellow;
+  box-shadow: 2px 2px 2px 2px black;
 }
 
 .person__skill-icon--app {
   padding: 5px;
   width: 25px;
-  margin-left: auto;
+  margin-left: 5px;
   float: right;
 }
 
 .person__skill-icon:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 2px 0 solid (@main-grey);
+  box-shadow: 2px 2px 2px 0 solid (black);
 }
 
 .person__description {
@@ -204,9 +261,9 @@
   text-transform: uppercase;
   background: inherit;
   padding: 10px;
-  border: 2px solid rgba(255,167,3,1);
+  border: 2px solid @main-color;
   border-radius: 10px;
-  color: rgba(255,167,3,1);
+  color: @main-color;
 
   @media (min-width: @desktop-width) {
     font-size: 18px;
@@ -313,10 +370,10 @@
   margin-left: auto;
   font-size: 17px;
   padding: 10px;
-  border: 2px solid rgba(255,167,3,1);
+  border: 2px solid @main-color;
   background: inherit;
   border-radius: 10px;
-  color: rgba(255,167,3,1);
+  color: @main-color;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -333,7 +390,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
-  background-color: @main-yellow;
+  background-color: @main-color;
   border: none;
   text-transform: uppercase;
 }
@@ -352,7 +409,7 @@
 .person__skill-hr {
   width: 80%;
   height: 2px;
-  background-color: @main-yellow;
+  background-color: @main-color;
   border: none;
 }
 

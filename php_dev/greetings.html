@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico">
+<link rel="icon" href="icon.svg" type="img/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" href="android-chrome-192x192.png">
+<link rel="icon" href="android-chrome-512x512.png">
+<link href="css/style.min.css" rel="stylesheet">
+<title>Привет!</title>
+</head>
+<script>
+  function nextSlide(id) {
+    document.getElementById(id).remove();
+  }
+  function start() {
+    window.location.href = '/user-apps.php';
+  }
+</script>
+<body class="land land-page">
+  <div class="banner" id="banner">
+    <div class="banner__wrapper">
+      <h2 class="banner__title">Привет, рады видеть тебя!</h2>
+      <p class="banner__description">Заполни личный профиль, чтобы твой обмен знаниями был наиболее эффективным.</p>
+      <p class="banner__instructions">В личном кабинете зайди в раздел “Личные данные”</p>
+      <div class="main-header__mini-item main-header__mini-item--banner">
+        Личные данные
+      </div>
+      <p class="banner__instructions">Укажи предметы, с которыми можешь помочь</p>
+      <img>
+      <div class="banner__bottom-container">
+        <div class="banner__slider">
+          <img src="img/banner.jpg" alt="banner">
+        </div>
+        <p class="banner__instructions">Чем подробнее будет описание предмета, тем быстрее ты найдешь партнера по обмену знаниями.</p>
+        <div class="banner__container">
+          <a class="banner__submit banner__submit--cancel close" onclick="nextSlide('banner')" href="#">Дальше</a>
+          <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5" cy="5" r="4.5" fill="black" stroke="black"/>
+            <circle cx="22.5" cy="5" r="4.5" fill="white" stroke="black"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner" id="bannerLast">
+    <div class="banner__wrapper">
+      <h2 class="banner__title">Заявки</h2>
+      <p class="banner__description">Опубликуй заявку, чтобы начать поиск study друга.</p>
+      <p class="banner__instructions">В личном кабинете зайди в раздел “Заявки”</p>
+      <div class="main-header__mini-item user__mini-item--apps main-header__mini-item--banner">
+        Заявки
+      </div>
+      <p class="banner__instructions">Заполни форму</p>
+      <img>
+      <div class="banner__bottom-container">
+        <div class="banner__slider">
+          <img src="img/banner.jpg" alt="banner">
+        </div>
+        <p class="banner__instructions">Опиши подробно, в чем хочешь получить помощь: какие темы непонятны, где не хватает практики. Удачи в поиске!</p>
+        <div class="banner__container">
+          <a class="banner__submit banner__submit--cancel closeBanner" onclick="start()" href="#">Начнем!</a>
+          <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="5" cy="5" r="4.5" fill="white" stroke="black"/>
+            <circle cx="22.5" cy="5" r="4.5" fill="black" stroke="black"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -14,7 +14,7 @@
   </div>
   <div class="chat__area" id="chat-area">
     <a class="chat__conversation-href" href="chat.php?userid=<?= $user_id ?>">Назад</a>
-    <div class="chat__conversation-title"><b>Диалог:</b><i class="fa fa-search"></i></div>
+    <div class="chat__conversation-title">Диалог:</div>
     <div class="chat-list">
       <ul class="chat__main-dialog" id="chat">
         <script>
@@ -26,6 +26,7 @@
           let active = 0;
           var count;
           let user_img = $(".main-header__photo").attr("src");
+          let person_img;
 
           $('.chat__conversation-text').on("click", function() {
             document.getElementById('messForm').style.display = "flex";
@@ -51,13 +52,13 @@
                 })
                 .then((data) => {
                   userid = data;
-                  //alert("user id: " + userid);
 
                   fetch('set/get_chat.php?' + fetchurl)
                     .then((arr) => {
                       return arr.json();
                     })
                     .then((data) => {
+                      person_img = data[0].url;
                       for (let i = 0; i < data.length; i++) {
                         if (data[i].reciever_id !== userid) {
                           let li = document.createElement('li');
@@ -114,15 +115,35 @@
                           } else {
                             li.className = "chat__mini-container";
                           }
-                          li.innerHTML = "<div class=\"chat__message\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"img/elenasportmachen.jpg\">";
+                          li.innerHTML = "<div class=\"chat__message chat__message--sender\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"" + person_img + "\">";
                           $chat.append(li);
                           i++
                         }
                       }
                     })
                 }
-              }, 15000);
+              }, 150000);
           });
+
+          let feeds;
+          const feedurl = new URLSearchParams({
+            receiverid: receiver_id
+          });
+          update_fetchurl = "set/getFeeds.php?" + feedurl;
+          fetch('set/getFeeds.php')
+            .then((arr) => {
+              return arr.text();
+            })
+            .then((data) => {
+              if(data === "true") {
+                let li = document.createElement('li');
+                li.className = "chat__mini-container chat__mini-container--user";
+                li.innerHTML = "<div class=\"chat__message\">" + "<svg class=\"page-footer__img page-footer__img--htmlacademy\"><use xlink:href=\"#logotype-htmlacademy\"></use></svg>"
+                 + "</div><img class=\"chat__photo\" src=\"" + user_img + "\">";
+                $chat.append(li);
+              }
+            })
+
           const $chat = document.querySelector('#chat');
           function sendmes() {
             $.ajax({
@@ -145,9 +166,10 @@
           }
         </script>
       </ul>
-      <div class="chat__form hide" id="messForm" style="display: none;">
+      <div class="chat__form" id="messForm" style="display: none;">
         <input class="chat__input" type="text" placeholder="Введите сообщение" name="content" id="content">
-        <button class="chat__form-img" id="submit" onclick="sendmes()">Send</button>
+        <img src="img/send.svg" class="chat__form-img" id="submit" onclick="sendmes()">
+<!--        <button class="chat__form-img" id="submit" onclick="sendmes()">Send</button>-->
       </div>
     </div>
   </div>

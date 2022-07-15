@@ -5,6 +5,7 @@
       $username = $_SESSION['user_name'];
       $url = $_SESSION['url'];
       $person_url = "user.php?" . http_build_query(['id' => $user_id]);
+      $my_account = 1;
   }
   else{
       $user_id = null;

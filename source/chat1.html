@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>Чат</title>
+</head>
+<body class="main-body">
+<header class="main-header">
+  <img class="main-header__heading" src="../img/logotype.svg" alt="explorex">
+  <a class="main-header__username" href="">
+    <div class="main-header__profile">
+      <h2 class="main-header__username"><a class="main-header_default" style="color:white;" href="../php_dev/logout.php">Выйти</a></h2>
+      <a href="<?= $person_url ?>"><img class="main-header__photo" src="../php_dev/img/profile.jpg" alt="фото"></a>
+    </div>
+  </a>
+</header>
+<div class="window-wrapper">
+  <div class="chat__window" id="dialogs">
+    <div class="chat__conversation-list">
+      <h2 class="chat__conversation-title">Сообщения</h2>
+      <ul class="chat__people-list">
+        <li class="chat__conversation-area"><a class="chat__conversation-text" href="#">lalala</a></li>
+        <li class="chat__conversation-area"><a class="chat__conversation-text" href="#">Техподдержка</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="chat__area" id="chat-area">
+    <a class="chat__conversation-href" href="chat.php?userid=<?= $user_id ?>">Назад</a>
+    <div class="chat__conversation-title"><b>Диалог:</b><i class="fa fa-search"></i></div>
+    <div class="chat-list">
+      <ul class="chat__main-dialog" id="chat">
+<!--        <script>-->
+<!--          let screenWidth = document.documentElement.clientWidth;-->
+<!--          var userid;-->
+<!--          var receiver_id;-->
+<!--          var update_fetchurl;-->
+<!--          var myNode = document.getElementById("chat");-->
+<!--          let active = 0;-->
+<!--          var count;-->
+<!--          let user_img = $(".main-header__photo").attr("src");-->
+<!--          let person_img;-->
+
+<!--          $('.chat__conversation-text').on("click", function() {-->
+<!--            document.getElementById('messForm').style.display = "flex";-->
+<!--            if (screenWidth <= 450) {-->
+<!--              document.getElementById('dialogs').style.display = "none";-->
+<!--              document.getElementById('chat-area').style.display = "block";-->
+<!--            }-->
+<!--            receiver_id = $(this).attr('id');-->
+<!--            if (active === 1) {-->
+<!--              while (myNode.firstChild) {-->
+<!--                myNode.removeChild(myNode.firstChild);-->
+<!--              }-->
+<!--            }-->
+<!--            active = 1;-->
+<!--            const fetchurl = new URLSearchParams({-->
+<!--              receiverid: receiver_id-->
+<!--            });-->
+<!--            update_fetchurl = "set/update_chat.php?" + fetchurl;-->
+
+<!--            fetch('set/session.php')-->
+<!--              .then((arr) => {-->
+<!--                return arr.text();-->
+<!--              })-->
+<!--              .then((data) => {-->
+<!--                userid = data;-->
+
+<!--                fetch('set/get_chat.php?' + fetchurl)-->
+<!--                  .then((arr) => {-->
+<!--                    return arr.json();-->
+<!--                  })-->
+<!--                  .then((data) => {-->
+<!--                    person_img = data[0].url;-->
+<!--                    for (let i = 0; i < data.length; i++) {-->
+<!--                      if (data[i].reciever_id !== userid) {-->
+<!--                        let li = document.createElement('li');-->
+<!--                        li.className = "chat__mini-container chat__mini-container&#45;&#45;user";-->
+<!--                        li.innerHTML = "<div class=\"chat__message\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"" + user_img + "\">";-->
+<!--                        $chat.prepend(li);-->
+<!--                        continue;-->
+<!--                      }-->
+<!--                      else if (data[i].reciever_id === userid) {-->
+<!--                        let li = document.createElement('li');-->
+<!--                        li.className = "chat__mini-container";-->
+<!--                        li.innerHTML = "<div class=\"chat__message chat__message&#45;&#45;sender\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"" + data[i].url + "\">";-->
+<!--                        $chat.prepend(li);-->
+<!--                        continue;-->
+<!--                      }-->
+<!--                      else if (data[i].user_id !== userid) {-->
+<!--                        let li = document.createElement('li');-->
+<!--                        li.className = "chat__mini-container";-->
+<!--                        li.innerHTML = "<div class=\"chat__message chat__message&#45;&#45;sender\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"" + data[i].url + "\">";-->
+<!--                        $chat.prepend(li);-->
+<!--                        continue;-->
+<!--                      }-->
+<!--                      else if (data[i].user_id === userid) {-->
+<!--                        let li = document.createElement('li');-->
+<!--                        li.className = "chat__mini-container chat__mini-container&#45;&#45;user";-->
+<!--                        li.innerHTML = "<div class=\"chat__message\"><p class=\"chat__message-text\">" + data[i].content + "</p><span class=\"msg-time\"></span></div><img class=\"chat__photo\" src=\"" + user_img + "\">";-->
+<!--                        $chat.prepend(li);-->
+<!--                      }-->
+<!--                      count = i;-->
+<!--                    }-->
+<!--                  })-->
+<!--              })-->
+                <li class="chat__mini-container">
+                  <div class="chat__message chat__message--sender">
+                    <p class="chat__message-text">content</p>
+                    <span class="msg-time"></span>
+                  </div>
+                  <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+                </li>
+                <li class="chat__mini-container">
+                  <div class="chat__message chat__message--sender">
+                    <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+                    <span class="msg-time"></span>
+                  </div>
+                  <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+                </li>
+                <li class="chat__mini-container">
+                  <div class="chat__message chat__message--sender">
+                    <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+                    <span class="msg-time"></span>
+                  </div>
+                  <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+                </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">content</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+        <li class="chat__mini-container">
+          <div class="chat__message chat__message--sender">
+            <p class="chat__message-text">Suspendisse sed convallis diam. Donec volutpat ipsum.</p>
+            <span class="msg-time"></span>
+          </div>
+          <img class="chat__photo" src="img/chat.jpg" alt="ddd">
+        </li>
+      </ul>
+    </div>
+    <div class="chat__form hide" id="messForm">
+      <input class="chat__input" type="text" placeholder="Введите сообщение" name="content" id="content">
+      <img src="img/send.svg" class="chat__form-img" id="submit" onclick="sendmes()">
+    </div>
+  </div>
+</div>
+<footer class="page-footer">
+  <a href="mailto:" class="page-footer__text">info@explorex.ru</a>
+  <br class="page-footer__text">
+  <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+  <br class="page-footer__text">
+  <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+</footer>
+</body>
+</html>

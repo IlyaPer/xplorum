@@ -13,7 +13,7 @@
     $person_url = null;
   }
   $subjects = mysqli_fetch_all($result, MYSQLI_ASSOC);
-  $content = include_template('community.php', ['users' => $users, 'subjects' => $subjects, 'connection' => $connection]);
+  $content = include_template('reject.php', ['users' => $users, 'subjects' => $subjects, 'connection' => $connection]);
   $layout_content = include_template('layout.php', ['content' => $content, 'title' => 'Сообщество', 'username' => $username, 'person_url' => $person_url, 'user_id' => $user_id,  'classname_index' => '', 'classname_comm' => 'main-menu__item--active']);
   print($layout_content);
   ?>

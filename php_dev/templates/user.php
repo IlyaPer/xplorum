@@ -139,13 +139,40 @@
                 </div>
                 <p class="people__description"><?= $app['content'] ?></p>
               </div>
-          <form id="app_form<?= $app['app_id'] ?>" method="post" class="person__form" action="set/application-edit.php">
-            <label for="title"></label>
-            <input name="title" id="title" type="text" placeholder="Напишите с чем вы хотите получить помощь" value="<?= $app['title'] ?>">
+<!--          <form id="app_form--><?//= $app['app_id'] ?><!--" method="post" class="person__form" action="set/application-edit.php">-->
+<!--            <label for="title"></label>-->
+<!--            <input name="title" id="title" type="text" placeholder="Напишите с чем вы хотите получить помощь" value="--><?//= $app['title'] ?><!--">-->
+<!--            <input name="id" id="id" type="hidden" value="--><?//= $app['app_id'] ?><!--">-->
+<!--            <label for="content"></label>-->
+<!--            <textarea name="content" id="content" placeholder="Напишите подробнее, что вы хотели бы узнать">--><?//= $app['content'] ?><!--</textarea>-->
+<!--            <input type="submit" value="Сохранить">-->
+<!--          </form>-->
+          <form id="app_form<?= $app['app_id'] ?>" class="person__form" id="myDropdown" method="post" action="set/application-edit.php">
+            <img class="person__form-cancel" src="img/cancel-cross_icon-icons.com_71726.svg" alt="close" onclick="close('myDropdown')">
+              <div class="person__form-container">
+              <label for="app-title">
+                   Заголовок заявки
+              </label>
+              <input class="person__form-input" type="text" name="title" id="title" value="<?= $app['title'] ?>">
+             </div>
             <input name="id" id="id" type="hidden" value="<?= $app['app_id'] ?>">
-            <label for="content"></label>
-            <textarea name="content" id="content" placeholder="Напишите подробнее, что вы хотели бы узнать"><?= $app['content'] ?></textarea>
-            <input type="submit" value="Сохранить">
+             <div class="person__form-container">
+                 <label for="app-description">
+                     Содержание заявки
+                 </label>
+              <textarea class="person__app-description" name="content" id="content" placeholder=""><?= $app['content'] ?></textarea>
+              </div>
+               <label for="app-subject">
+                   Предмет заявки
+               </label>
+               <div class="person__form-container">
+                  <select name="app-subject" id="app-subject">
+                    <option>Математика</option>
+                    <option>Русский язык</option>
+                    <option>Английский язык</option>
+                  </select>
+              </div>
+              <input class="person__app-btn" type="submit" value="Сохранить">
           </form>
         </li>
         <?php endforeach; ?>
@@ -358,8 +385,8 @@
 
   $("#crop").click(function() {
     canvas = cropper.getCroppedCanvas({
-      width: 200,
-      height: 200,
+      width: 250,
+      height: 250,
     });
 
     canvas.toBlob(function(blob) {
