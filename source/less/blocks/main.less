@@ -97,6 +97,11 @@
   }
 }
 
+.main-header__mini-href {
+  text-decoration: none;
+  color: #000000;
+}
+
 .main-header__mini-item--banner {
   border-bottom: none;
 }
@@ -128,15 +133,25 @@
   background-image: url("../img/sets.svg");
 }
 
-.main-header__photo--logout {
+.main-header__mini-item--logout {
+  background-image: url("../img/exit.svg");
+  background-size: 8%;
+  background-repeat: no-repeat;
+}
+
+.main-header__photo--logout-box {
   margin: 10px 0 10px 10px;
   width: 20px;
   height: 20px;
 
   @media (min-width: @desktop-width) {
-    width: 25px;
-    height: 25px;
+    display: none;
   }
+}
+
+.main-header__photo--logout {
+  width: 20px;
+  height: 20px;
 }
 
 .main-header__photo--logout:hover {
