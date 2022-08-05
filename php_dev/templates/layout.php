@@ -77,15 +77,16 @@
   </symbol>
 </svg>
 <header class="main-header">
-  <img class="main-header__heading" src="../img/xplorus_white.svg" alt="XPLORUM">
+  <a href="applications.php">
+    <img class="main-header__heading" src="../img/xplorus_white.svg" alt="explorex">
+  </a>
   <?php if($username !== null): ?>
   <a class="main-header__username">
-    <div class="main-header__profile">
-      <a href="logout.php"><img class="main-header__photo--logout" src="../build/img/exit.svg" alt="выйти"></a>
-      <img class="main-header__photo--logout" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
-      <a href="user.php?id=<?= $user_id ?>"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
-    </div>
-  </a>
+      <div class="main-header__profile">
+        <img class="main-header__photo--logout-box" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
+        <a href="user.php?id=<?= $user_id ?>" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
+      </div>
+    </a>
   <?php else: ?>
   <div class="main-header__profile">
     <h2 class="main-header__username"><a class="default" style="color:white;" href="logout.php">Войти</a></h2>
@@ -100,16 +101,20 @@
     <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
   </ul>
   <ul class="main-header__mini-menu" id="mini-menu">
-    <li class="main-header__mini-item">
-      Личные данные
-    </li>
-    <li class="main-header__mini-item main-header__mini-item--apps">
-      Заявки
-    </li>
-    <li class="main-header__mini-item main-header__mini-item--sets">
-      Настройки
-    </li>
-  </ul>
+      <li class="main-header__mini-item">
+        <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
+          Личные данные
+        </a>
+      </li>
+      <li class="main-header__mini-item main-header__mini-item--apps">
+        <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
+          Заявки
+        </a>
+      </li>
+      <li class="main-header__mini-item main-header__mini-item--logout">
+        <a class="main-header__mini-href" href="logout.php">Выход</a>
+      </li>
+    </ul>
 </section>
 <?= $content; ?>
 <footer class="page-footer">

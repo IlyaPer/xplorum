@@ -27,45 +27,75 @@
   <div class="banner" id="banner">
     <div class="banner__wrapper">
       <h2 class="banner__title">Привет, рады видеть тебя!</h2>
-      <p class="banner__description">Заполни личный профиль, чтобы твой обмен знаниями был наиболее эффективным.</p>
+      <p class="banner__description">Для того, чтобы начать обмен знаниями, нужно откликнуться на заявку о получении помощи:</p>
       <p class="banner__instructions">В личном кабинете зайди в раздел “Личные данные”</p>
-      <div class="main-header__mini-item main-header__mini-item--banner">
-        Личные данные
+      <ul class="apps__list">
+        <li class="apps_item">
+          <a class="apps__href">
+            <div>
+              <img class="apps__img" alt="NAME" src="img/photo.jpg">
+              <h4 class="apps__name">Елена</h4>
+              <h4 class="apps__name apps__name--additional">Москва</h4>
+            </div>
+            <div class="apps__content-container">
+              <h2 class="apps__heading">
+                Нужна помощь в подготовке к сочинению ЕГЭ
+              </h2>
+              <div class="apps__subject">
+                Русский язык
+              </div>
+              <p class="apps__description">
+                Не понимаю падежи и как отличить причастие от дееяприячастия. Нужно подготовиться к написанию сочинения для ЕГЭ,буду сдавать экзамен в этом году, хочу хорошо подготовиться хочу хорошо подготовитьсяхочу хорошо подготовитьсяхочу хорошо подготовиться
+              </p>
+              <div class="apps__footer-container">
+                <div class="apps__subjects-container">
+                  <p class="apps__subjects-heading">Знаю:</p>
+                  <div class="apps__subject">Математика</div>
+                  <div class="apps__subject">Английский язык</div>
+                </div>
+                <div class="apps__button" id="app3" onclick="greetings('app3')"></div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="banner__box">
+        <div class="apps__button" id="app3" onclick="greetings('app3')"></div>
+        <p>Нажимая на эту кнопку, ты откликаешься на заявку другого ученика и ему приходит твой отклик</p>
       </div>
-      <p class="banner__instructions">Укажи предметы, с которыми можешь помочь</p>
-      <img>
-      <div class="banner__bottom-container">
-        <div class="banner__slider">
-          <img src="img/banner.jpg" alt="banner">
-        </div>
-        <p class="banner__instructions">Чем подробнее будет описание предмета, тем быстрее ты найдешь партнера по обмену знаниями.</p>
-        <div class="banner__container">
-          <a class="banner__submit banner__submit--cancel close" onclick="nextSlide('banner')" href="#">Дальше</a>
-          <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="5" cy="5" r="4.5" fill="black" stroke="black"/>
-            <circle cx="22.5" cy="5" r="4.5" fill="white" stroke="black"/>
-          </svg>
-        </div>
+      <div class="banner__container">
+        <a class="banner__submit banner__submit--cancel close" onclick="nextSlide('banner')" href="#">Дальше</a>
+        <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="4.5" fill="black" stroke="black"/>
+          <circle cx="22.5" cy="5" r="4.5" fill="white" stroke="black"/>
+        </svg>
+      </div>
       </div>
     </div>
   </div>
   <div class="banner" id="bannerLast">
     <div class="banner__wrapper">
-      <h2 class="banner__title">Заявки</h2>
-      <p class="banner__description">Опубликуй заявку, чтобы начать поиск study друга.</p>
-      <p class="banner__instructions">В личном кабинете зайди в раздел “Заявки”</p>
-      <div class="main-header__mini-item user__mini-item--apps main-header__mini-item--banner">
-        Заявки
-      </div>
-      <p class="banner__instructions">Заполни форму</p>
+      <h2 class="banner__title">Опубликуй заявку и получай отклики сегодня</h2>
+      <p class="banner__description">Для того, чтобы опубликовать первую заявку, кликни на эту кнопку на главной странице!</p>
+      <button class="banner__button">
+        Заявка
+      </button>
+      <p class="banner__description">Проверяй отклики на свою заявку в разделе <span class="banner__bold">Чат</span></p>
       <img>
-      <div class="banner__bottom-container">
-        <div class="banner__slider">
-          <img src="img/banner.jpg" alt="banner">
+      <div class="banner__feedback-box">
+        <div class="banner__feed-container">
+          <img class="banner__feed-img" src="img/feedback.png" alt="Elene sent feedback">
+          <p class="banner__username">Елена</p>
         </div>
-        <p class="banner__instructions">Опиши подробно, в чем хочешь получить помощь: какие темы непонятны, где не хватает практики. Удачи в поиске!</p>
+        <p>Елена откликнулась на твою заявку</p>
+      </div>
+      <p class="banner__description">Создай завку прямо сейчас, чтобы обменяться знаниями уже сегодня!</p>
+      <div class="banner__bottom-container">
         <div class="banner__container">
-          <a class="banner__submit banner__submit--cancel closeBanner" onclick="start()" href="#">Начнем!</a>
+          <div>
+            <a class="banner__submit banner__submit--dark close" onclick="nextSlide('banner')" href="#">Позже</a>
+            <a class="banner__submit banner__submit--cancel closeBanner" onclick="start()" href="#">Создать завку</a>
+          </div>
           <svg onclick="nextSlide('banner')" width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="5" cy="5" r="4.5" fill="white" stroke="black"/>
             <circle cx="22.5" cy="5" r="4.5" fill="black" stroke="black"/>

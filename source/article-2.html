@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>ЗАЯВКИ</title>
+</head>
+<body class="main-body">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  function addToFavourite (id) {
+    var img = document.getElementById(id).src;
+    document.getElementById(id).classList.toggle("apps__button--favourite-active");
+  }
+  function greetings (id) {
+    document.getElementById(id).classList.toggle('apps__button--active');
+  }
+
+  var statusCur = 0;
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+  }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+
+  function Edit(edit_id, delete_id) {
+    document.getElementById(edit_id).classList.toggle("show");
+    document.getElementById(delete_id).classList.toggle("hide");
+  }
+
+  function greetings(id, receiverId) {
+    var string = "app" + id;
+    let stat = $('#' + string).attr('class').split(' ')[1] === '' ? false : true;
+    console.log($('#' + string).attr('class').split(' ')[1])
+    console.log(stat)
+    document.getElementById(string).classList.toggle('apps__button--active');
+    $.ajax({
+      url: "set/feedback.php",
+      type: "POST",
+      cashe: false,
+      data: {
+        appId: id,
+        delete: stat,
+        receiverId: receiverId
+      }, // Отправка
+      success: {
+      },
+      error: function () {
+        alert("Error 403. Fatal.");
+      }
+    })
+  }
+</script>
+<header class="main-header">
+  <a href="applications.php">
+    <img class="main-header__heading" src="img/xplorus_white.svg" alt="explorex">
+  </a>
+  <a class="main-header__username">
+    <div class="main-header__profile">
+      <img class="main-header__photo--logout-box" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
+      <a href="#" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
+    </div>
+  </a>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="main-menu__default" href="applications.php">Главная</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="community.php">Пользователи</a></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="blog.html">Интересное</a><img class="main-menu__icon" src="img/fire.svg" alt="fire"></li>
+  </ul>
+  <ul class="main-header__mini-menu" id="mini-menu">
+    <li class="main-header__mini-item">
+      <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
+        Личные данные
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--apps">
+      <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
+        Заявки
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--logout">
+      <a class="main-header__mini-href" href="logout.php">Выход</a>
+    </li>
+  </ul>
+</section>
+<main class="blog">
+  <h1 class="blog__main-heading">
+    VR-концерты в метавселенных
+  </h1>
+  <p class="blog__text">VR-проекты для метавселенных набирают популярность в бизнес сфере. Так, платформа для концертов в виртуальной реальности AmazeVR привлекла $15 млн. Привлеченные деньги от инвестиционных компаний стартап планирует потратить на расширение штата сотрудников: на данный момент в компании работает 41 человек.</p>
+  <p class="blog__text">AmazeVR в 2015 году основали бывшие руководители южнокорейского мессенджера Kakao. Цель проекта — с помощью технологий создать ощущение присутствия человека на реальном концерте, не посещая его. К 2024 году платформа планирует выпускать VR-концерты еженедельно для просмотра дома и в кинотеатрах.</p>
+  <img class="blog__photo" src="img/party.jpeg" alt="party">
+  <p class="blog__text">В июле 2022 года стало известно о соглашении о совместном предприятии с гигантом K-pop SM Entertainment и студией KWANGYA – Studio A. Концерты будут распространяться через сервис метавселенной музыки VR от AmazeVR и сервис метавселенной VR от SM.
+  <br>
+    Благодаря партнерству фанаты южнокорейских звезд смогут приблизиться к своим кумирам и почувствовать себя в центре сцены. Один из CEO Amaze VR сказал: «Образование Studio A позволит проводить масштабные VR-концерты крупных артистов, которые зрители никогда раньше не видели.»</p>
+  <footer class="page-footer">
+    <a href="mailto:" class="page-footer__text">info@explorex.ru</a>
+    <br class="page-footer__text">
+    <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+    <br class="page-footer__text">
+    <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+  </footer>
+</body>
+</html>

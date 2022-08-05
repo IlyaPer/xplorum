@@ -40,7 +40,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15%;
+  margin-top: 5%;
   width: 80%;
   border-radius: 10px;
   padding: 20px;
@@ -73,6 +73,18 @@
   }
 }
 
+.banner__button {
+  background-image: url("../img/plus.svg");
+  background-repeat: no-repeat;
+  background-size: 18%;
+  background-position-x: 94%;
+  background-position-y: center;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 34px 10px 10px;
+  font-size: 20px;
+}
+
 .banner__instructions {
   font-weight: 300;
   font-size: 10px;
@@ -82,6 +94,17 @@
   @media (min-width: @desktop-width) {
     font-size: 15px;
   }
+}
+
+.banner__box {
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.banner__box > * {
+  margin: 15px;
 }
 
 .banner__slider {
@@ -94,6 +117,41 @@
   justify-content: space-between;
   width: 50%;
   align-items: center;
+  margin-top: 20px;
+}
+
+.banner__bold {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.banner__feedback-box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+
+.banner__feed-container {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.banner__feed-img {
+  width: 100%;
+}
+
+.banner__username {
+  margin: 0;
+  align-self: center;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.24px;
+  color: rgba(27, 27, 27, 0.28);
 }
 
 .banner__submit {
@@ -105,4 +163,9 @@
   color: #000000;
   text-transform: none;
   border: none;
+}
+
+.banner__submit--dark {
+  background-color: rgba(0, 0, 0, 0,13);
+  color: black;
 }

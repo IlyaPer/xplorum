@@ -16,6 +16,9 @@
 <!--    <input class="search__submit" type="submit" value="Найти">-->
 <!--  </form>-->
 </section>
+<a class="apps__create-button" href="#new-app">
+  Создать
+</a>
 <main class="apps">
   <ul class="apps__list">
     <?php
@@ -79,3 +82,29 @@
     <?php endif; ?>
   </ul>
 </main>
+<div class="user__form-container" id="new-app">
+  <form class="user__app-form">
+    <h2 class="user__form-title">Публикация заявки</h2>
+    <div class="user__max-width">
+      <label class="user__max-width">Название заявки</label>
+      <input class="user__max-width" type="text" name="app-title" placeholder="Например: прошу помочь с экстремумами функции">
+    </div>
+    <div class="user__max-width">
+      <label class="user__max-width">Предмет заявки</label>
+      <select>
+        <option>Математика</option>
+        <option>Русский язык</option>
+        <option>Физика</option>
+        <option>Информатика</option>
+      </select>
+    </div>
+    <div class="user__max-width">
+      <label class="user__max-width">Содержание заявки</label>
+      <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите проблему. Например: Я не понимаю, как решать параметр через производную."></textarea>
+    </div>
+    <div class="user__max-width">
+      <input class="user__submit" type="submit" value="Опубликовать">
+      <a class="user__submit user__submit--cancel" href="#" class="close">Отменить</a>
+    </div>
+  </form>
+</div>

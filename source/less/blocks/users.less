@@ -1,0 +1,138 @@
+.users  {
+  padding: 0 3% 0 3%;
+}
+
+.users__heading-container {
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.users__heading {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.users__container {
+  width: 100%;
+  padding: 0 0 0 10px;
+
+  @media (min-width: @desktop-width) {
+    width: auto;
+  }
+}
+
+.users__icon {
+  margin-left: 5px;
+  width: fit-content;
+}
+
+.users__feedback-box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+
+.users__img {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 50%;
+  min-width: 2vw;
+  max-width: 20vw;
+}
+
+.users__count {
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 30px;
+  letter-spacing: 0.12px;
+  color: #21A436;
+}
+
+.users__img--max-width {
+  width: fit-content;
+  max-width: 10px;
+  margin: 0 0 0 5px;
+}
+
+.users__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #FFFFFF;
+
+  @media (min-width: @desktop-width) {
+    flex-direction: row;
+  }
+}
+
+.users__item {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: space-between;
+
+  @media (min-width: @desktop-width) {
+    flex-wrap: wrap;
+    width: fit-content;
+    width: 24%;
+  }
+}
+
+.users__info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.users__name {
+  margin: 0;
+  font-family: "Exo", sans-sefif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 30px;
+  width: fit-content;
+}
+
+.users__feedback-box {
+  width: fit-content;
+}
+
+.users__subjects {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+}
+
+.users__subject {
+  background-color: black;
+  color: #FFFFFF;
+  padding: 2px;
+  border-radius: 2px;
+  font-size: 15px;
+  line-height: 30px;
+  letter-spacing: 0.12px;
+}
+
+.users__subject--left {
+  margin-left: 10px;
+}
+
+.users__subject-dots {
+  margin-left: 10px;
+}

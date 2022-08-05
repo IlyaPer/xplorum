@@ -86,7 +86,7 @@
   background-position: left;
   background-repeat: no-repeat;
   padding-left: 20px;
-  font-size: 12px;
+  font-size: 12px;main-menu__list
   font-weight: bold;
   border-bottom: 1px solid @hr-color;
 
@@ -170,7 +170,6 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  background-color: white;
 
   @media (min-width: @desktop-width) {
     width: 40%;
@@ -187,6 +186,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
 }
 
 .main-menu__notion {
@@ -198,6 +198,11 @@
   color: #FFFFFF;
   border: 1px solid #FFFFFF;
   border-radius: 50%;
+}
+
+.main-menu__icon {
+  margin-left: 5px;
+  width: fit-content;
 }
 
 .main-menu__item--active {
@@ -213,4 +218,8 @@
   @media (min-width: @desktop-width) {
     font-size: 21px;
   }
+}
+
+.main-menu__default:hover {
+  text-decoration: underline;
 }

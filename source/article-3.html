@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>ЗАЯВКИ</title>
+</head>
+<body class="main-body">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  function addToFavourite (id) {
+    var img = document.getElementById(id).src;
+    document.getElementById(id).classList.toggle("apps__button--favourite-active");
+  }
+  function greetings (id) {
+    document.getElementById(id).classList.toggle('apps__button--active');
+  }
+
+  var statusCur = 0;
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+  }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+
+  function Edit(edit_id, delete_id) {
+    document.getElementById(edit_id).classList.toggle("show");
+    document.getElementById(delete_id).classList.toggle("hide");
+  }
+
+  function greetings(id, receiverId) {
+    var string = "app" + id;
+    let stat = $('#' + string).attr('class').split(' ')[1] === '' ? false : true;
+    console.log($('#' + string).attr('class').split(' ')[1])
+    console.log(stat)
+    document.getElementById(string).classList.toggle('apps__button--active');
+    $.ajax({
+      url: "set/feedback.php",
+      type: "POST",
+      cashe: false,
+      data: {
+        appId: id,
+        delete: stat,
+        receiverId: receiverId
+      }, // Отправка
+      success: {
+      },
+      error: function () {
+        alert("Error 403. Fatal.");
+      }
+    })
+  }
+</script>
+<header class="main-header">
+  <a href="applications.php">
+    <img class="main-header__heading" src="img/xplorus_white.svg" alt="explorex">
+  </a>
+  <a class="main-header__username">
+    <div class="main-header__profile">
+      <img class="main-header__photo--logout-box" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
+      <a href="#" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
+    </div>
+  </a>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="main-menu__default" href="applications.php">Главная</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="community.php">Пользователи</a></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="blog.html">Интересное</a><img class="main-menu__icon" src="img/fire.svg" alt="fire"></li>
+  </ul>
+  <ul class="main-header__mini-menu" id="mini-menu">
+    <li class="main-header__mini-item">
+      <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
+        Личные данные
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--apps">
+      <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
+        Заявки
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--logout">
+      <a class="main-header__mini-href" href="logout.php">Выход</a>
+    </li>
+  </ul>
+</section>
+<main class="blog">
+  <h1 class="blog__main-heading">
+    Как школьному стартапу победить во всероссийском акселераторе
+  </h1>
+  <img class="blog__photo blog__photo--big" src="img/3-1.png" alt="team">
+  <p class="blog__text">2021 год стал необычным для участников акселерационных программ по развитию предпринимательских талантов: SberZ и SberStudent. Обе категории были объединены в Демодень так, что школьники соревновались не только друг с другом, но и со студентами. Несмотря на повышенную конкуренцию, победителем обеих номинаций стал проект школьников “Домаптека”.</p>
+  <div class="blog__photo-container blog__margin-top">
+    <div class="blog__photo-box">
+      <img class="blog__photo" src="img/3-2.png" alt="photo">
+    </div>
+    <p class="blog__text blog__text--right">Чтобы разобраться, в чем состоит секрет победы в акселераторе, мы взяли интервью у Софьи Любимовы – одной из основательниц “Домаптеки”.</p>
+  </div>
+  <h2 class="blog__h2">Что такое “Домаптека” и как она появилась</h2>
+  <p class="blog__text">Однажды я заметила, что у нас дома очень много разных лекарств и коробочек, в которых сложно ориентироваться. Было такое, что  родители покупали уже то, что уже у нас было. Иногда мы проводили ревизию и выбрасывали очень много просроченных препаратов. Я поняла, что у родителей нет времени за этим всем следить и непонятно, что же у нас там есть, а чего нет. Тогда я подумала, что можно создать такое приложение, как “Домаптека”, в котором будет храниться вся информация о лекарствах из домашней аптечки: срок годности и количество остатка лекарств. Также все будет квалифицирование по показаниям к применению. Например, если человек находиться на приеме у врача или в аптеке и не помнит, что у него есть дома от горла, он может зайти в приложение, быстро посмотреть и сказать врачу, что он, например, применял, или не покупать что-то лишнее. </p>
+  <p class="blog__text">Подобные решения уже есть на рынке со схожим функционалом, но в них все функции реализованы отдельно. Нам хотелось объединить это в одно приложение.</p>
+  <h2>С какими проблемами столкнулись</h2>
+  <p class="blog__text">
+    В начале было сложно распределить роли внутри команды и кто за что будет отвечать. Также в процессе работы мы так и не нашли программиста, который может разработать сам продукт. Поэтому нам приходилось привлекать кого-то вне акселератора. Как руководителю проекта было сложно все время мотивировать людей и распределять задачи правильно. Нужно следить все ли справляются со своими задачами, быстро понимать, если у человека что-то идет не так, и решать, что можно сделать и дать ему кого-то в помощь.
+  </p>
+  <h2>“Не опускайте руки, не переставайте верить в себя”</h2>
+  <p class="blog__text">Прежде всего, я хочу сказать, что никогда не надо опускать руки, переставать верить в себя. Никогда не надо отчаиваться, даже если все идет не так. Например, примерно за неделю до окончания предпоследнего этапа, во время отбора на Демодень, MVP, который мы планировали, был полностью не готов из-за нехватки времени. Тогда мне показалось, что мы точно никуда уже не пройдем, ничего не получится. Это было ошибочно. В тот момент, мы правильно решили ничего не бросать, а продолжить работать. Очень важно было тогда взять себя в руки. Поэтому я хочу сказать всем, что сложности это нормально. Если тебе тяжело, значит, ты на верном пути, продолжай идти дальше.
+  </p>
+  <h2>Что помогло проекту стать победителем</h2>
+  <p class="blog__text">Мне кажется, что, многим людям была близка проблема беспорядка в аптечке. В конкурсе было много технологических стартапов, нацеленных на более узкую аудиторию, которые, возможно, не нашли своих зрителей среди жюри. Наш проект был более социальный с большей целевой аудиторией, и поэтому эта идея привлекла людей и особенно жюри.</p>
+  <p class="blog__text">Я считаю, что, жюри также заинтересовала бизнес модель нашего продукта. Срок окупаемости был довольно короткий – всего три года, а процент от продаж был достаточно низким.</p>
+  <h2>Лайфхаки для победы и эффективного участия</h2>
+  <p class="blog__text">Во-первых, нужно представлять свой продукт максимально простым языком. Во-вторых,  это надо делать с горящими глазами, чтобы люди видели, что ты болеешь идеей. Нужно показать, что продукт действительно полезный и с его появлением жизнь жюри станет лучше. Очень важна твоя энергетика, когда ты выступаешь на сцене. Во время работы нужно всегда спрашивать мнения разных людей насчет продукта, рассказывать другим людям и получать обратную связь. Спрашивать: было ли им удобно таким пользоваться, а что бы они хотели изменить? Такой взгляд со стороны может помочь в дальнейшем развитии, поможет увидеть новое решение. Участникам нужно не бояться принимать критику, потому что именно критика помогает становиться лучше.
+  </p>
+  <h2>Развитие “Домаптеки” после акселератора</h2>
+  <p class="blog__text">После акселератора мы провели несколько встреч со “СБЕР Еаптека”, где наметили, как можно дальше сотрудничать. Вместе с командой мы обозначили планы того, как можно изменить приложение, потому что во время работы мы поняли, что нужно больше его проработать и провести интервью с целевой аудиторией и решенческие интервью. Мы собрали много обратной связи от пользователей-тестировщиков, узнали о многих неудобствах приложения. На данный момент планируем доработать наш продукт, а также уже разработать его полностью. Но для этого мы не хотим нанимать программистов, хотим сделать это собственными руками, чтобы сделать его таким, каким мы хотим его видеть.
+  </p>
+  <h2>Чему научились во время участия в акселераторе</h2>
+  <p class="blog__text">Я научилась работать в команде, слушать других и чужие мнения, быть лидером. Демодень научил меня очень многому. Прежде всего, это умение выступать на широкую аудиторию. Я научилась справляться со стрессом. Могу сказать, что у меня довольно хорошо получилось выступить, благодаря тому, что с нами много работали еще перед выступлением. Так я узнала, как надо говорить и стоять, куда надо смотреть и что делать, если вдруг забыла текст. Также во время акселератора я получила возможность пообщаться с большим количеством таких же предпринимателей, которым интересно менять мир вокруг. Я нашла новые знакомства и очень классных ребят в свою команду.</p>
+</body>
+</html>

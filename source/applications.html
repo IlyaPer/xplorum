@@ -10,6 +10,11 @@
   <title>ЗАЯВКИ</title>
 </head>
 <body class="main-body">
+<svg style="display: none;">
+  <symbol width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" id="closeBtn">
+    <path d="M0 10.2857L1.71429 12L6 7.71429L10.2857 12L12 10.2857L7.71429 6L12 1.71429L10.2857 0L6 4.28571L1.71429 0L0 1.71429L4.28571 6L0 10.2857Z" fill="#030104"/>
+  </symbol>
+</svg>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
@@ -17,8 +22,33 @@
     var img = document.getElementById(id).src;
     document.getElementById(id).classList.toggle("apps__button--favourite-active");
   }
+
+  var count = 1;
+
   function greetings (id) {
     document.getElementById(id).classList.toggle('apps__button--active');
+    let dd = count + "no";
+    let notion = document.createElement('li');
+    notion.className = "application__notion";
+    notion.id = dd;
+    notion.innerHTML =
+      "        <div class=\"application__notion-container\">" +
+      "          <h4 class=\"application__notion-heading\">Ты откликнулся на заявку Елены</h4>" +
+      "          <svg class=\"application__notion-icon\" onclick=\"closeNotion("
+      +
+      "\'" + count + "\'" +
+      ")\">" +
+      "            <use xlink:href=\"#closeBtn\"></use>" +
+      "          </svg>" +
+      "        </div>" +
+      "        <a class=\"application__notion-href\" href=\"chat.html\">Перейти в чат</a>";
+
+    applications__notions.prepend(notion);
+    count++;
+  }
+
+  function closeNotion(id) {
+    document.getElementById(id + "no").remove();
   }
 
     var statusCur = 0;
@@ -37,28 +67,28 @@
     document.getElementById(delete_id).classList.toggle("hide");
   }
 
-    function greetings(id, receiverId) {
-    var string = "app" + id;
-    let stat = $('#' + string).attr('class').split(' ')[1] === '' ? false : true;
-    console.log($('#' + string).attr('class').split(' ')[1])
-    console.log(stat)
-    document.getElementById(string).classList.toggle('apps__button--active');
-    $.ajax({
-    url: "set/feedback.php",
-    type: "POST",
-    cashe: false,
-    data: {
-    appId: id,
-    delete: stat,
-    receiverId: receiverId
-  }, // Отправка
-    success: {
-  },
-    error: function () {
-    alert("Error 403. Fatal.");
-  }
-  })
-  }
+  //   function greetings(id, receiverId) {
+  //   var string = "app" + id;
+  //   let stat = $('#' + string).attr('class').split(' ')[1] === '' ? false : true;
+  //   console.log($('#' + string).attr('class').split(' ')[1])
+  //   console.log(stat)
+  //   document.getElementById(string).classList.toggle('apps__button--active');
+  //   $.ajax({
+  //   url: "set/feedback.php",
+  //   type: "POST",
+  //   cashe: false,
+  //   data: {
+  //   appId: id,
+  //   delete: stat,
+  //   receiverId: receiverId
+  // }, // Отправка
+  //   success: {
+  // },
+  //   error: function () {
+  //   alert("Error 403. Fatal.");
+  // }
+  // })
+  // }
 </script>
 <header class="main-header">
   <a href="applications.php">
@@ -74,23 +104,18 @@
 <section class="main-menu">
   <ul class="main-menu__list">
     <li class="main-menu__item"><a class="main-menu__default" href="applications.php">Главная</a></li>
-    <li class="main-menu__item"><a class="main-menu__default" href="community.php">Пользователи</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="users.html">Пользователи</a></li>
     <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
   </ul>
   <ul class="main-header__mini-menu" id="mini-menu">
     <li class="main-header__mini-item">
-      <a class="main-header__mini-href" href="logout.php">
-        Личные данные!
+      <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
+        Личные данные
       </a>
     </li>
     <li class="main-header__mini-item main-header__mini-item--apps">
-      <a class="main-header__mini-href" href="logout.php">
+      <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
         Заявки
-      </a>
-    </li>
-    <li class="main-header__mini-item main-header__mini-item--sets">
-      <a class="main-header__mini-href" href="logout.php">
-        Настройки
       </a>
     </li>
     <li class="main-header__mini-item main-header__mini-item--logout">
@@ -134,6 +159,9 @@
       <input class="search__submit" type="submit" value="Найти">
     </form>
   </section>
+<a class="apps__create-button" href="#new-app">
+  Создать
+</a>
   <main class="apps">
     <ul class="apps__list">
       <li class="apps_item">
@@ -160,10 +188,6 @@
                 <div class="apps__subject">Английский язык</div>
               </div>
               <div class="apps__button" id="app3" onclick="greetings('app3')"></div>
-                  <!--               <picture class="apps__button">-->
-<!--                  <source media="(min-width: 1200px)" srcset="img/send-desktop.svg">-->
-<!--                  <img alt="Написать" id="app3" onclick="addToFavourite('app2')" src="img/send-mob.svg">-->
-<!--                </picture>-->
             </div>
           </div>
         </a>
@@ -273,7 +297,44 @@
       <li class="pagination__item pagination__item"><a class="pagination__text" href="#">12</a></li>
       <li class="pagination__item pagination__item--next"><a class="pagination__text" href="#">Вперед</a></li>
     </ul>
+    <ul class="applications__notions" id="applications__notions">
+      <li class="application__notion" id="1no">
+        <div class="application__notion-container">
+          <h4 class="application__notion-heading">Ты откликнулся на заявку Елены</h4>
+          <svg class="application__notion-icon" onclick="closeNotion('1')">
+            <use xlink:href="#closeBtn"></use>
+          </svg>
+        </div>
+        <a class="application__notion-href" href="chat.html">Перейти в чат</a>
+      </li>
+    </ul>
   </main>
+  <div class="user__form-container" id="new-app">
+  <form class="user__app-form">
+    <h2 class="user__form-title">Публикация заявки</h2>
+    <div class="user__max-width">
+      <label class="user__max-width">Название заявки</label>
+      <input class="user__input" type="text" name="app-title" placeholder="Например: прошу помочь с экстремумами функции">
+    </div>
+    <div class="user__max-width">
+      <label class="user__max-width">Предмет заявки</label>
+      <select class="user__input" >
+        <option>Математика</option>
+        <option>Русский язык</option>
+        <option>Физика</option>
+        <option>Информатика</option>
+      </select>
+    </div>
+    <div class="user__max-width">
+      <label class="user__max-width">Содержание заявки</label>
+      <textarea class="user__textarea " type="text" name="app-title" placeholder="Подробнее опишите проблему. Например: Я не понимаю, как решать параметр через производную."></textarea>
+    </div>
+    <div class="user__max-width">
+      <input class="user__submit" type="submit" value="oпубликовать">
+      <a class="user__submit user__submit--cancel" href="#" class="close">Отменить</a>
+    </div>
+  </form>
+</div>
   <footer class="page-footer">
     <a href="mailto:" class="page-footer__text">info@explorex.ru</a>
     <br class="page-footer__text">
