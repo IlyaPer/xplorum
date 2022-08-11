@@ -1,0 +1,142 @@
+.base {
+  padding: 0 5% 0 5%;
+  min-height: 100vw;
+}
+
+.base__heading-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.base__heading {
+  max-width: 75px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.12px;
+}
+
+.base__main-heading {
+  margin: 0;
+}
+
+.base__heading-icon {
+  max-height: 14px;
+}
+
+.base__section {
+  background-color: #FFFFFF;
+}
+
+#base__menu {
+  padding-left: 5%;
+  display: none;
+}
+
+#base__menu:target {
+  display: block;
+}
+
+.base__menu-list {
+  width: calc(90% - 8px);
+  margin: 0;
+  padding: 8px 0 8px 8px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  position: absolute;
+  left: 5%;
+  background-color: @main-grey;
+  min-height: 100vw;
+}
+
+.base__menu-item {
+  text-align: center;
+  margin-top: 8px;
+  width: 100%;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.12px;
+  color: rgba(0, 0, 0, 0.41);
+}
+
+.base__menu-item--close {
+  text-align: right;
+  display: block;
+  margin-right: 10px;
+}
+
+.base__main {
+  padding: 0 5% 0 5%;
+}
+
+.base__list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.base__item {
+  width: 100%;
+}
+
+.base__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  text-decoration: none;
+  color: #000000;
+}
+
+.base__main-info {
+
+}
+
+.base__hr {
+  width: 100%;
+}
+
+.base__mini-heading {
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.41);
+}
+
+.base__article-heading {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #1B1B1B;
+}
+
+.base__article-author {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #818181;
+}
+
+.base__fire-icon {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: end;
+  justify-content: flex-end;
+}
+
+.base__fire-text {
+  font-weight: 500;
+}
+
+.base__date {
+  font-size: 14px;
+  color: #818181;
+}

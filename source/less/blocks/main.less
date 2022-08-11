@@ -86,7 +86,7 @@
   background-position: left;
   background-repeat: no-repeat;
   padding-left: 20px;
-  font-size: 12px;main-menu__list
+  font-size: 12px;
   font-weight: bold;
   border-bottom: 1px solid @hr-color;
 
@@ -143,6 +143,7 @@
   margin: 10px 0 10px 10px;
   width: 20px;
   height: 20px;
+  max-width: fit-content;
 
   @media (min-width: @desktop-width) {
     display: none;
@@ -165,15 +166,19 @@
 }
 
 .main-menu__list {
-  padding: 0 0 0 10%;
+  margin: 0 auto 0 auto;
+  justify-content: space-around;
+  padding: 0;
+  width: 100%;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 
   @media (min-width: @desktop-width) {
-    width: 40%;
     padding: 0 0 0 10%;
+    width: auto;
+    justify-content: left;
   }
 }
 

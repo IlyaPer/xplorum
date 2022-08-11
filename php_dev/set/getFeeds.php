@@ -7,7 +7,7 @@
   if (!$result_user_messages) {
     exit;
   }
-  if (!empty(mysqli_fetch_assoc($result_user_messages)) {
+  if (!empty(mysqli_fetch_assoc($result_user_messages))) {
     print(true);
   }
   ?>

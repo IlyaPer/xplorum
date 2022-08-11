@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru" class="main-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/icon.svg" type="img/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple.webp">
+  <title>ЗАЯВКИ</title>
+</head>
+<body class="main-body">
+<svg style="display: none;">
+  <symbol width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" id="closeBtn">
+    <path d="M0 10.2857L1.71429 12L6 7.71429L10.2857 12L12 10.2857L7.71429 6L12 1.71429L10.2857 0L6 4.28571L1.71429 0L0 1.71429L4.28571 6L0 10.2857Z" fill="#030104"/>
+  </symbol>
+  <symbol width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg" id="burger">
+    <line y1="0.5" x2="21" y2="0.5" stroke="black"/>
+    <line y1="7.5" x2="21" y2="7.5" stroke="black"/>
+    <line y1="14.5" x2="21" y2="14.5" stroke="black"/>
+  </symbol>
+</svg>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  function addToFavourite (id) {
+    var img = document.getElementById(id).src;
+    document.getElementById(id).classList.toggle("apps__button--favourite-active");
+  }
+  var count = 1;
+  function greetings (id) {
+    document.getElementById(id).classList.toggle('apps__button--active');
+    let dd = count + "no";
+    let notion = document.createElement('li');
+    notion.className = "application__notion";
+    notion.id = dd;
+    notion.innerHTML =
+      "        <div class=\"application__notion-container\">" +
+      "          <h4 class=\"application__notion-heading\">Ты откликнулся на заявку Елены</h4>" +
+      "          <svg class=\"application__notion-icon\" onclick=\"closeNotion("
+      +
+      "\'" + count + "\'" +
+      ")\">" +
+      "            <use xlink:href=\"#closeBtn\"></use>" +
+      "          </svg>" +
+      "        </div>" +
+      "        <a class=\"application__notion-href\" href=\"chat.html\">Перейти в чат</a>";
+
+    applications__notions.prepend(notion);
+    count++;
+  }
+
+  function closeNotion(id) {
+    document.getElementById(id + "no").remove();
+  }
+
+  var statusCur = 0;
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+  }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+  }
+
+  function Edit(edit_id, delete_id) {
+    document.getElementById(edit_id).classList.toggle("show");
+    document.getElementById(delete_id).classList.toggle("hide");
+  }
+</script>
+<header class="main-header">
+  <a href="applications.php">
+    <img class="main-header__heading" src="../img/xplorus_white.svg" alt="explorex">
+  </a>
+  <a class="main-header__username">
+    <div class="main-header__profile">
+      <img class="main-header__photo--logout-box" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
+      <a href="#" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
+    </div>
+  </a>
+</header>
+<section class="main-menu">
+  <ul class="main-menu__list">
+    <li class="main-menu__item"><a class="main-menu__default" href="applications.php">Главная</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="community.php">Пользователи</a></li>
+    <li class="main-menu__item"><a class="main-menu__default" href="base.html">База Знаний</a></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="blog.html">Интересное</a><img class="main-menu__icon" src="img/fire.svg" alt="fire"></li>
+  </ul>
+  <ul class="main-header__mini-menu" id="mini-menu">
+    <li class="main-header__mini-item">
+      <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
+        Личные данные
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--apps">
+      <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
+        Заявки
+      </a>
+    </li>
+    <li class="main-header__mini-item main-header__mini-item--logout">
+      <a class="main-header__mini-href" href="logout.php">Выход</a>
+    </li>
+  </ul>
+</section>
+  <main class="article">
+    <h2 class="article__heading">Решето Эратосфена на СИ</h2>
+    <img class="article__img" src="img/resheto.png" alt="first example">
+    <p class="article__text">Решето Эратосфена - алгоритм поиска простых чисел в диапазоне от 0 до N.</p>
+    <p class="article__text">Алгоритм:</p>
+
+    <p class="article__text">1) Получить ряд чисел от 2 до N.</p>
+
+    <p class="article__text">2) Заведем итератор по диапазону i = 2.</p>
+
+    <p class="article__text">3) Начинаем поиск таких составных чисел в диапазоне из пункта 1, чтобы в их разложении было число i. Каждое такое составное число “вычеркиваем” из диапазона.</p>
+
+    <p class="article__text">4) Присваиваем числу i ближайшее не зачеркнутое значение и повторяем шаг 2.</p>
+    <p class="article__text">Этот алгоритм максимально прост в реализации, но можно заметить, что его можно улучшить. Для этого нужно проверить на шаге 3, условие i*i  &lt N. Если условие верно, тогда все простые числа уже найдены и алгоритм можно заканчивать. (Объяснение). Если условие неверно, то значит есть еще “уникальные” числа, разложение которых содержит это простое число.</p>
+    <p class="article__text">Реализация на языке СИ. Реализация довольно проста, но сейчас будет пример, где с точки зрения “полевого” программирования будет допущена уязвимость, которую предлагается найти. Подсказка: алгоритм верный, стоит точно понять, что подразумевается под уязвимостью.</p>
+    <img class="article__img" src="img/article-1.png" alt="first example">
+    <p class="article__text">На размышление дается 2 минуты.</p>
+    <p class="article__text">Проблема заключается в коде</p>
+<!--  IMG HERE  -->
+    <p class="article__img">i * i &lt N и со всеми аналогичными конструкциями. Если вы протестируете программу с большими входными данными (более корня из максимального инта), то результатом операции i*i будет число, превышающее максимально допустимый инт, что вызовет переполнение и, конечно, ошибку (которая может привести к зацикливанию). Поэтому правильно использовать функцию корня.</p>
+  </main>
+  <footer class="page-footer">
+    <a href="mailto:" class="page-footer__text">info@taifun.ru</a>
+    <br class="page-footer__text">
+    <a href="agreement.html" class="page-footer__text">пользовательское соглашение</a>
+    <br class="page-footer__text">
+    <a href="user-agreement.html" class="page-footer__text">согласие на обработку персональных данных</a>
+  </footer>
+</body>
+</html>

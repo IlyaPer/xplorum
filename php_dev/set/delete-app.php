@@ -4,9 +4,10 @@
 
   $id = intval($_POST['appId']);
 
-  if ($id >= 0 && $id < 1000000000) {
-    $sql = "DELETE FROM applications WHERE id = '$id' AND user_id = " . $_SESSION['user_id'] . ';';
+  if ($id >= 0 && $id < 1000000000 & !empty($_POST)) {
+    $sql = "DELETE FROM applications WHERE id = ' . $id . ' AND user_id = " . $_SESSION['user_id'] . ';';
     $result = mysqli_query($connection, $sql);
+    print ("good");
     if (!$result) {
       print("error");
       exit;

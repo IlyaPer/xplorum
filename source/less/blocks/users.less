@@ -22,6 +22,9 @@
 
   @media (min-width: @desktop-width) {
     width: auto;
+    display: block;
+    margin-left: 5px;
+    margin-right: auto;
   }
 }
 
@@ -34,6 +37,7 @@
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
+  align-items: center;
 }
 
 .users__img {
@@ -43,14 +47,27 @@
   border-radius: 50%;
   min-width: 2vw;
   max-width: 20vw;
+
+  @media (min-width: @desktop-width) {
+    width: fit-content;
+  }
 }
 
 .users__count {
+  margin: 0;
   font-weight: 700;
   font-size: 19px;
   line-height: 30px;
   letter-spacing: 0.12px;
   color: #21A436;
+}
+
+.users__count--land {
+  color: #000000;
+}
+
+.users__count--land {
+  width: fit-content;
 }
 
 .users__img--max-width {
@@ -70,7 +87,14 @@
 
   @media (min-width: @desktop-width) {
     flex-direction: row;
+    justify-content: space-around;
   }
+}
+
+.users__list--land {
+  background-color: inherit;
+  color: black;
+  font-family: "Exo", "Exo2-Medium", sans-serif;
 }
 
 .users__item {
@@ -82,8 +106,21 @@
 
   @media (min-width: @desktop-width) {
     flex-wrap: wrap;
-    width: fit-content;
-    width: 24%;
+    width: 21%;
+  }
+}
+
+.users__item--desktop {
+  display: none;
+
+  @media (min-width: @desktop-width) {
+    display: block;
+  }
+}
+
+.users__max-width {
+  @media (min-width: @desktop-width) {
+    width: 100%;
   }
 }
 
@@ -91,8 +128,6 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .users__name {
@@ -107,6 +142,11 @@
 
 .users__feedback-box {
   width: fit-content;
+  margin-left: 10px;
+
+  @media (min-width: @desktop-width) {
+    margin-left: 15px;
+  }
 }
 
 .users__subjects {
@@ -120,10 +160,8 @@
 }
 
 .users__subject {
-  background-color: black;
-  color: #FFFFFF;
+  color: @grey-users;
   padding: 2px;
-  border-radius: 2px;
   font-size: 15px;
   line-height: 30px;
   letter-spacing: 0.12px;
@@ -135,4 +173,38 @@
 
 .users__subject-dots {
   margin-left: 10px;
+}
+
+.users__btn {
+  font-size: 15px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.12px;
+  color: #353535;
+}
+
+.users__btn:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+
+.users__send-icn {
+  max-width: 24px;
+  max-height: 24px;
+  margin-left: 10px;
+}
+
+.users__best-user {
+  background-color: black;
+  padding: 3px;
+  background-image: linear-gradient(90.97deg, #A5DDAA 2.72%, rgba(27, 228, 133, 0.47) 22.3%, rgba(147, 197, 216, 0.979006) 34.39%, rgba(29, 27, 145, 0.94) 49.52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  @media (min-width: @desktop-width) {
+    margin: 0;
+  }
 }

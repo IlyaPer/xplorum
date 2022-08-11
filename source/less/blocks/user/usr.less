@@ -1,0 +1,266 @@
+.usr {
+  padding: 0 10% 0 10%;
+  margin-bottom: 35%;
+
+  @media(min-width: @desktop-width) {
+    margin-bottom: 15%;
+  }
+}
+
+.usr__main-box {
+  @media(min-width: @desktop-width) {
+    background-color: rgba(235, 233, 233, 0.83);
+    padding: 3%;
+    background-image: url("../img/dynamicBackground.svg");
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+}
+
+.usr__person-box {
+  @media(min-width: @desktop-width) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+}
+
+.usr__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+.usr__name {
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 4px;
+}
+
+.usr__online {
+  margin: 2px;
+  padding: 0 3px 0 3px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  background-color: rgba(43, 234, 39, 0.40);
+}
+
+.usr__status {
+  margin: 0;
+  text-align: center;
+  color: #818181;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.usr__btn {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.12px;
+  width: fit-content;
+  margin-top: 6px;
+  border-radius: 3px;
+  padding: 4px;
+  color: #818181;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  text-decoration: none;
+}
+
+.usr__btn:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+
+.usr__box-message {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(102, 102, 102, 0.5);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#messageBox:target {
+  display: block;
+}
+
+.usr__form-message {
+  font-size: 16px;
+  margin-top: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding: 10px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: @desktop-width) {
+    width: 35%;
+    margin-top: 25%;
+    font-size: 20px;
+  }
+}
+
+.usr__form-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.usr__message {
+  width: 100%;
+  resize: none;
+  border: none;
+  min-height: 125px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 20px;
+  }
+}
+
+.usr__sent-btn {
+  margin-top: 10px;
+  padding: 4px;
+  border: none;
+  font-family: "Exo", "Exo2-Medium", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 20px;
+  }
+}
+
+.usr__cancel {
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.usr__send-icn {
+  max-width: 22px;
+  max-height: 22px;
+  margin-left: 10px;
+}
+
+.usr__boxes {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media(min-width: @desktop-width) {
+    justify-content: space-between;
+  }
+}
+
+.usr__knowledge, .usr__apps, .usr__sets {
+  margin-top: 10px;
+  padding: 5%;
+  background-color: #FFFFFF;
+  width: 100%;
+  min-height: 251px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 10px;
+
+  @media(min-width: @desktop-width) {
+    width: 28%;
+    padding: 2%;
+  }
+}
+
+.usr__knowledge {
+  @media(min-width: @desktop-width) {
+    flex-grow: 2;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+.usr__sets {
+  @media(min-width: @desktop-width) {
+    max-height: 255px;
+  }
+}
+
+.usr__apps {
+  @media(min-width: @desktop-width) {
+    width: 63%;
+  }
+}
+
+.usr__heading-box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  @media(min-width: @desktop-width) {
+    flex-direction: row;
+    align-items: normal;
+  }
+}
+
+.usr__mini-heading {
+  color: #818181;
+}
+
+.usr__icon {
+  width: 7%;
+  margin-left: 10px;
+
+  @media (min-width: @desktop-width) {
+    max-height: 30px;
+    max-width: 30px;
+    margin-left: 5px;
+  }
+}
+
+.usr__add-button {
+  display: block;
+  margin-top: auto;
+  font-size: 9px;
+  line-height: 30px;
+  width: 74px;
+  text-align: center;
+  background-color: @background-color;
+  border: none;
+  text-decoration: none;
+  color: #000000;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    width: fit-content;
+    padding: 4px 10px 4px 10px;
+  }
+}
+
+.usr__apps-button {
+  display: block;
+  margin-top: auto;
+  width: fit-content;
+  background-color: @main-grey;
+  text-decoration: none;
+  font-weight: bold;
+  color: #1b1b1b;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 10px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 14px;
+  }
+}

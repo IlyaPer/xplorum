@@ -9,7 +9,7 @@
   <label class="login__label">
     Пароль
   </label>
-  <input class="login__input" type="password" name="password" id="password" placeholder="Только никому не говорите">
+  <input class="login__input" type="password" name="password" id="password" placeholder="">
   <?php if(isset($errors['password'])){
     print($errors['password']);
   } ?>

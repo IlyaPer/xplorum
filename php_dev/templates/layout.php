@@ -89,7 +89,7 @@
     </a>
   <?php else: ?>
   <div class="main-header__profile">
-    <h2 class="main-header__username"><a class="default" style="color:white;" href="logout.php">Войти</a></h2>
+    <p class="main-header__username"><a class="default" style="color:white;" href="logout.php">Войти</a></p>
     <a href="login.php"><img class="main-header__photo" src="../build/img/profile.jpg" alt="фото"></a>
   </div>
   <?php endif; ?>
