@@ -1,7 +1,12 @@
 <?php
     require_once("init.php");
     $hide = 0;
+    $visitor = 0;
     $id = intval($_GET['id']) ?? NULL;
+    if ($id === NULL or ctype_digit($_GET['id']) === false) {
+      header("Location: pages/404.html");
+      exit;
+    }
     if(!isset($_SESSION['user_id'])){
 //      header('Location: login.php');
 //      exit;
@@ -10,10 +15,6 @@
       $chat_href = 0;
       $person_url = "img/profile.webp";
       $visitor = 0;
-    }
-    if ($id === NULL or ctype_digit($_GET['id']) === false) {
-      header("Location: pages/404.html");
-      exit;
     }
     require_once("function.php");
     $my_account = -1;
@@ -27,6 +28,7 @@
           'reciever' => $id
         );
         $chat_href = "chat.php?" . http_build_query($url, '', '&amp;');
+        $_SESSION['toWrite'] = $id;
       }
       else {
         $my_account = 1;
@@ -40,6 +42,14 @@
       exit;
     }
     $user = mysqli_fetch_assoc($result_user);
+
+    $user_id = $_SESSION["user_id"];
+    $sql_user = "SELECT `date_creation`, `author_id`, `content`, `user_id`, users.id AS identity, name, url FROM feedbacks JOIN users ON users.id = author_id WHERE user_id = '$id';";
+    $result_user = mysqli_query($connection, $sql_user);
+    if (!$result_user) {
+      exit;
+    }
+    $feedbacks = mysqli_fetch_all($result_user, MYSQLI_ASSOC);
 
     if (empty($user)) {
       header("Location: login.php");
@@ -76,7 +86,7 @@
 //        header("Location: user.php?id=" . $id);
 //      }
 //    }
-    $content = include_template('usr.php', ['user' => $user, 'connection' => $connection, 'apps' => $applications, 'userSubjects' => $user_subjects, 'subjects' => $subjects, 'receiver' => $id, 'my_account' => $my_account, 'id' => $id, 'visitor' => $visitor, 'chat_href' => $chat_href, 'hide' => $hide]);
+    $content = include_template('usr.php', ['user' => $user, 'connection' => $connection, 'apps' => $applications, 'userSubjects' => $user_subjects, 'subjects' => $subjects, 'receiver' => $id, 'my_account' => $my_account, 'id' => $id, 'feeds' => $feedbacks, 'visitor' => $visitor, 'chat_href' => $chat_href, 'hide' => $hide]);
     $layout_content = include_template('layout.php', ['content' => $content, 'title' => 'Профиль', 'username' => $username, 'person_url' => $person_url, 'user_id' => $user_id]);
     print($layout_content);
 ?>

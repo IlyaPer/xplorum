@@ -2,7 +2,7 @@
   <ul class="search__subjects-list">
     <?php foreach($subjects as $s): ?>
     <li class="search__subject">
-      <a class="search__subject-title" href="applications.php?subject=<?= $s['id'] ?>"><?= $s['title'] ?></a>
+      <a class="search__subject-title" href="applications.php?subject=<?= $s['id'] ?>"><?= htmlspecialchars($s['title']); ?></a>
     </li>
     <?php endforeach; ?>
   </ul>
@@ -26,12 +26,12 @@
       $per_url = "user.php?" . http_build_query(["id" => $app['user_id']]);
     ?>
     <li class="apps_item">
-      <a class="apps__href">
-        <div>
+      <div class="apps__href">
+        <a class="apps__href-container" href="<?= $per_url ?>">
           <img class="apps__img" alt="NAME" src="<?= $app['photo']; ?>">
           <h4 class="apps__name"><?= htmlspecialchars($app['author']) ?></h4>
           <h4 class="apps__name apps__name--additional">Москва</h4>
-        </div>
+        </a>
         <div class="apps__content-container">
           <h2 class="apps__heading">
             <?= htmlspecialchars($app['title']); ?>
@@ -61,7 +61,7 @@
             <div class="apps__button <?php echo(is_int(array_search($app['AppId'], array_column($feeds, 'appId'))) ? 'apps__button--active' : '' );?>" id="app<?= htmlspecialchars($app['AppId']); ?>" onclick="greetings('<?= htmlspecialchars($app['AppId']); ?>', '<?= htmlspecialchars($app['mainId']); ?>')"></div>
           </div>
         </div>
-      </a>
+      </div>
     </li>
     <?php endforeach; ?>
   </ul>

@@ -50,6 +50,8 @@
   }
   function Dropdown(id) {
     document.getElementById(id).classList.toggle("show");
+    var m = id + "del"
+    document.getElementById(m).classList.toggle("hide");
   }
   function Edit(edit_id, delete_id) {
     document.getElementById(edit_id).classList.toggle("show");
@@ -118,22 +120,44 @@
           <img class="usr__icon" src="img/know.svg" alt="know">
         </div>
         <div>
-          <div class="user-info__subject">
-            <button class="user-info__button">
-              Математика
-            </button>
-            <picture class="user-info__delete-icon">
-              <source media="(min-width: 1200px)" srcset="img/delete-desktop.svg">
-              <img src="img/delete.svg" alt="Удалить">
-            </picture>
-          </div>
-          <div class="user-info__input-container">
-            <input class="user-info__input" type="text" name="description" id="description" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis consectetur turpis, pellentesque condimentum lorem. Integer sit amet odio quis diam imperdiet interdum. Nullam accumsan varius varius. Nunc sit amet felis vitae erat condimentum bibendum a quis ipsum. Aliquam id.">
-            <picture class="user-info__edit-icon">
-              <source media="(min-width: 1200px)" srcset="img/pen-desktop.svg">
-              <img src="img/pen-mob.svg" alt="edit">
-            </picture>
-          </div>
+          <ul class="user-info__feed-list">
+            <li class="user-info__feed">
+              <div class="user-info__subject">
+                <p>Математика</p>
+                <img class="user-info__edit-pen" src="img/edit-pen.svg" alt="edit" onclick="Dropdown(223)">
+              </div>
+              <div class="user-info__input-container">
+                <div class="user-info__input" type="text" id="223del" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis consectetur turpis, pellentesque condimentum lorem. Integer sit amet odio quis diam imperdiet interdum. Nullam accumsan varius varius. Nunc sit amet felis vitae erat condimentum bibendum a quis ipsum. Aliquam id.</div>
+                <form class="user__app-form user__app-form--edit" id="223">
+                  <label class="user__label">
+                    <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите ваши навыки"><textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите ваши навыки"></textarea></textarea>
+                  </label>
+                  <div class="user__max-width">
+                    <input class="user__submit" type="submit" value="Сохранить">
+                    <a class="user__submit user__submit--cancel close" onclick="Dropdown(223)">Отменить</a>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="user-info__feed">
+              <div class="user-info__subject">
+                <p>Математика</p>
+                <img class="user-info__edit-pen" src="img/edit-pen.svg" alt="edit" onclick="Dropdown(223)">
+              </div>
+              <div class="user-info__input-container">
+                <div class="user-info__input" type="text" id="223del" >Loreconsectetur t Integer sit amet odio  vitae eratuis ipsum. Aliquam id.</div>
+                <form class="user__app-form user__app-form--edit" id="223">
+                  <label class="user__label user__label--wide">
+                    <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите ваши навыки"><textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите ваши навыки"></textarea></textarea>
+                  </label>
+                  <div class="user__max-width">
+                    <input class="user__submit" type="submit" value="Сохранить">
+                    <a class="user__submit user__submit--cancel close" onclick="Dropdown(223)">Отменить</a>
+                  </div>
+                </form>
+              </div>
+            </li>
+          </ul>
           <div class="user__form-container" id="new-sub">
             <form class="user__app-form">
               <h2 class="user__form-title">Добавление предмета в профиль</h2>
@@ -293,6 +317,45 @@
             </div>
           </form>
         </div>
+      </div>
+      <div class="urs__feeds">
+        <div class="user__form-container" id="new-feed">
+          <form class="user__app-form">
+            <h2 class="user__form-title">Оставить отзыв</h2>
+            <p class="user__form-description">Отзыв будет виден всем пользователям</p>
+            <div class="user__max-width">
+              <label class="user__label">Предмет, по которому помог пользователь</label>
+              <select class="user__label">
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Физика</option>
+                <option>Информатика</option>
+              </select>
+            </div>
+            <div class="user__label">
+              <label class="user__label">Содержание</label>
+              <textarea class="user__max-width" type="text" name="app-title" placeholder="Подробнее опишите взаимодействие с пользователем"></textarea>
+            </div>
+            <div class="user__max-width">
+              <input class="user__submit" type="submit" value="Добавить" onclick="sendNewFeed()">
+              <a class="user__submit user__submit--cancel close" href="#">Отменить</a>
+            </div>
+          </form>
+        </div>
+        <div class="usr__heading-box">
+          <p>Отзывы</p>
+          <img class="usr__icon" src="img/sets.svg" alt="know">
+        </div>
+        <ul class="usr__feeds-list">
+          <li class="usr__feed">
+            <img class="usr__feed-img" src="img/user1.png" alt="user">
+            <div class="usr__feed-box">
+              <h2 class="usr__feed-head">Хелград Заморский</h2>
+              <p class="usr__feed-p">Donec sem quam, egestas eu ante ut, eleifend consequat sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur.</p>
+            </div>
+          </li>
+        </ul>
+        <a class="usr__add-button" href="#new-feed">+ оставить отзыв</a>
       </div>
       <div class="usr__sets">
         <div class="usr__heading-box">

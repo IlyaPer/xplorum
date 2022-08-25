@@ -84,12 +84,13 @@
   <a class="main-header__username">
       <div class="main-header__profile">
         <img class="main-header__photo--logout-box" src="img/menu-icon.svg" alt="меню" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля">
-        <a href="user.php?id=<?= $user_id ?>" onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
+        <a onclick="Dropdown('mini-menu')" aria-label="Меню личного профиля"><img class="main-header__photo" src="<?= $_SESSION['url']; ?>" alt="фото"></a>
       </div>
     </a>
   <?php else: ?>
   <div class="main-header__profile">
-    <p class="main-header__username"><a class="default" style="color:white;" href="logout.php">Войти</a></p>
+    <p class="main-header__username"><a class="default" href="#registerBanner" style="color:white;" >Зарегистрироваться</a></p>
+    <p class="main-header__username"><a class="default" href="login.php" style="color:white;" >Войти</a></p>
     <a href="login.php"><img class="main-header__photo" src="../build/img/profile.jpg" alt="фото"></a>
   </div>
   <?php endif; ?>
@@ -99,16 +100,12 @@
     <li class="main-menu__item"><a class="main-menu__default" href="applications.php">Главная</a></li>
     <li class="main-menu__item"><a class="main-menu__default" href="community.php">Пользователи</a></li>
     <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="chat.php?userid=<?= $user_id ?>">Чат</a> <button class="main-menu__notion">5</button></li>
+    <li class="main-menu__item main-menu__item--notions"><a class="main-menu__default" href="blog.html">Интересное</a><img class="main-menu__icon" src="img/fire.svg" alt="fire"></li>
   </ul>
   <ul class="main-header__mini-menu" id="mini-menu">
       <li class="main-header__mini-item">
         <a class="main-header__mini-href" href="user.php?id=<?= $user_id ?>">
-          Личные данные
-        </a>
-      </li>
-      <li class="main-header__mini-item main-header__mini-item--apps">
-        <a class="main-header__mini-href" href="user-apps.php?id=<?= $user_id ?>">
-          Заявки
+          Профиль
         </a>
       </li>
       <li class="main-header__mini-item main-header__mini-item--logout">
@@ -117,6 +114,39 @@
     </ul>
 </section>
 <?= $content; ?>
+<div class="land-main__registerBanner" id="registerBanner">
+  <form class="land-main__register-wrapper" method="post" action="register.php">
+    <h4 class="land-page__text land-page__text--black">Регистрация</h4>
+    <div class="land-main__banner-container">
+      <label class="land-main__label" for="email">
+        Электронная почта
+      </label>
+      <input class="land-page__input land-page__input--bottom" type="text" name="email" id="email" placeholder="email">
+    </div>
+    <div class="land-main__banner-container">
+      <label class="land-main__label" for="name">
+        Имя
+      </label>
+      <input class="land-page__input land-page__input--bottom" type="text" name="name" id="name" placeholder="Имя">
+    </div>
+    <div class="land-main__banner-container">
+      <label class="land-main__label" for="password">
+        Пароль
+      </label>
+      <input class="land-page__input land-page__input--bottom" type="password" name="password" id="password" placeholder="Пароль">
+    </div>
+    <div class="land-page__checkbox-container">
+      <input class="land-page__checkbox" type="checkbox" name="checkbox" id="checkbox" value="value">
+      <label class="land-page__label" for="checkbox">
+        <a href="agreement.html">
+          Я согласен на обработку персональных данных в соответствии с ПОПД
+        </a>
+      </label>
+    </div>
+    <input type="submit" name="submit" class="land-header__button land-header__button--black" value="Зарегистрироваться">
+    <a href="#">Отменить</a>
+  </form>
+</div>
 <footer class="page-footer">
   <a href="mailto:" class="page-footer__text">info@explorex.ru</a>
   <br class="page-footer__text">

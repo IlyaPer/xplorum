@@ -122,6 +122,20 @@
   width: 50%;
 }
 
+#new-feed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(102, 102, 102, 0.5);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#new-feed:target {
+  display: block;
+}
+
 #new-app {
   position: fixed;
   top: 0;
@@ -201,6 +215,13 @@
   border-radius: 10px;
 }
 
+.user__app-form--edit {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  display: none;
+}
+
 .user__app-form > .user__max-width {
   margin: 6px;
 }
@@ -216,6 +237,7 @@
 
 .user__form-description {
   font-size: 11px;
+  width: 100%;
 }
 
 .user__max-width {
@@ -268,7 +290,13 @@
 
   @media (min-width: @desktop-width) {
     font-size: 16px;
+    width: fit-content;
+    max-width: 85%;
   }
+}
+
+.user__label--wide {
+  width: 100%;
 }
 
 .user__max-width:focus {
@@ -276,16 +304,16 @@
 }
 
 .user__submit {
-  font-size: 10px;
   background-color: inherit;
   border-radius: 5px;
   padding: 12px;
   border: 1px solid @main-grey;
-  box-shadow: 1px 1px 2px 0px rgba(22, 229, 43, 0.2),
-              -1px -1px 2px 0px rgba(22, 229, 43, 0.2);
+  font-size: 12px;
+  cursor: pointer;
 
   @media (min-width: @desktop-width) {
-    font-size: 16px;
+    font-size: 14pt;
+    padding: 12px;
   }
 }
 

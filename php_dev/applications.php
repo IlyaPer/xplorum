@@ -2,19 +2,17 @@
   require_once("init.php");
   require_once("function.php");
 
+  if (!isset($_SESSION["user_id"])) {
+    header("Location: view.php");
+    exit;
+  }
+
   $sql_subjects = "SELECT id, title, color_hex_id, url FROM subjects;";
   $result_subjects = mysqli_query($connection, $sql_subjects);
   if (!$result_subjects) {
     exit;
   }
   $subjects = mysqli_fetch_all($result_subjects, MYSQLI_ASSOC);
-
-  $sql_feeds = "SELECT appId FROM feeds WHERE userId=" . $_SESSION['user_id'] . ";";
-  $result_subjects = mysqli_query($connection, $sql_feeds);
-  if (!$result_subjects) {
-    exit;
-  }
-  $feeds = mysqli_fetch_all($result_subjects, MYSQLI_ASSOC);
 
   $result = mysqli_query($connection, "SELECT COUNT(*) as cnt, id FROM applications group by id;");
   $app_count = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -36,6 +34,12 @@
   if (($current_page > $pages_count + 1) or $current_page <= 0) {
     header("Location: ../pages/404.html");
   }
+  $sql_feeds = "SELECT appId FROM feeds WHERE userId=" . $_SESSION['user_id'] . ";";
+  $result_subjects = mysqli_query($connection, $sql_feeds);
+  if (!$result_subjects) {
+    exit;
+  }
+  $feeds = mysqli_fetch_all($result_subjects, MYSQLI_ASSOC);
 
   $sql_applications = 'SELECT applications.id as AppId, date_creation, applications.title, content, applications.url, user_id, subject_id, users.id AS mainId, users.url AS photo, users.name AS author, subjects.id, subjects.title AS main_title, subjects.color_hex_id FROM applications JOIN users ON user_id = users.id JOIN subjects ON subjects.id = subject_id
      ORDER BY date_creation  DESC LIMIT ' . $page_items . ' OFFSET ' . $offset;

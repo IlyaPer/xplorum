@@ -126,11 +126,34 @@
 }
 
 .user-info__input-container {
-  height: 30px;
+  height: fit-content;
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: @desktop-width) {
+    align-items: normal;
+  }
+}
+
+.user-info__feed-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.user-info__feed {
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px;
+  height: fit-content;
+  margin: 5px 5px 5px 0;
+}
+
+.user-info__feed:hover & .user-info__edit-pen {
+  transition-delay: 0.03s;
+  display: block;
 }
 
 .user-info__edit-icon {
@@ -185,24 +208,46 @@
 }
 
 .user-info__input {
-  background-color: @input-color;
+  background-color: inherit;
   font-size: 9px;
   line-height: 30px;
   border: none;
-  padding: 0 0 0 10px;
   width: 100%;
 
   @media (min-width: @desktop-width) {
     font-size: 18px;
+    height: fit-content;
   }
 }
 
 .user-info__subject {
   display: flex;
+  width: 95%;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+
+  @media (min-width: @desktop-width) {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.user-info__edit-pen {
+  display: none;
+  transition-delay: 0.03s;
+  flex-grow: 0.05;
+  height: 100%;
+
+  @media (min-width: @desktop-width) {
+    flex-grow: 0.04;
+  }
+}
+
+.user-info__edit-pen:hover {
+  cursor: pointer;
+  transition-delay: 0.03s;
+  transform: scale(0.97);
 }
 
 .user-info__button {

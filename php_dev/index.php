@@ -8,13 +8,13 @@
   $errors = [];
   $user = $_POST;
   $rules = [
-    'inputEmail' => function(){
+    'email' => function(){
       if(!validateEmail('email')){
         return "Введите корректный email";
       }
     },
     'name' => function(){
-    if(!validateFilled('email')){
+    if(!validateFilled('name')){
       return "Введите всое имя";
     }
     },

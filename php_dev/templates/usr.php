@@ -69,6 +69,42 @@
     document.getElementById("new-sub").className = document.getElementById("new-sub").className + " hide";
   }
 
+  function addNewFeed() {
+    var m = $('#feed_content').val();
+    $.ajax({
+      url: "set/addFeedback.php",
+      type: "POST",
+      cashe: false,
+      data:{
+        feed_content: m
+      }, // Отправка
+      success:
+        location.reload(),
+      error: function () {
+        alert("Ошибка передачи. Возможно, были переданы некорреткные данные.");
+      }
+    });
+    console.log("success")
+
+    var count = 1;
+    let user_img = $(".main-header__photo").attr("src");
+
+    let notion = document.createElement('li');
+    notion.className = "usr__feed";
+    notion.id = count++ + "feed";
+    notion.innerHTML = "\<li class=\"usr__feed\"\>" +
+    "<a class=\"usr__feed usr__feed--no-deco\" \>" +
+      "<img class=\"usr__feed-img\" src=\"" + user_img + "\"" + "alt=\"s\">" +
+     "<div class=\"usr__feed-box\">" +
+     " <h2 class=\"usr__feed-head\">" + <?= "\"" .  $_SESSION['user_name'] . "\"" ?> + "<\/h2>" +
+     "<p class=\"usr__feed-p\">" + m + "</p>" +
+    "</div>" +
+   " </a>" +
+    "</li>";
+
+    feedbacks.prepend(notion);
+  }
+
   function deleteElement(id) {
     $.ajax({
       url: "set/delete-app.php",
@@ -88,13 +124,18 @@
     element = document.getElementById(id);
     element.remove();
   }
+  function Dropdown(id) {
+    document.getElementById(id).classList.toggle("show");
+    var m = id + "del"
+    document.getElementById(m).classList.toggle("hide");
+  }
 </script>
 <main class="usr">
   <h2 class="user__heading">Профиль</h2>
   <div class="usr__main-box">
     <div class="usr__boxes">
       <div class="usr__person-box">
-        <img src="<?= $user['url']; ?>" alt="<?= $user['name']; ?>" class="usr__img">
+        <img src="<?= $user['url']; ?>" alt="<?= htmlspecialchars($user['name']); ?>" class="usr__img">
         <?php if ($my_account === 1): ?>
         <div id="image-edit">
           <label for="name" class="user-info__label">
@@ -135,7 +176,7 @@
         </div>
         <?php endif; ?>
         <div class="usr__heading-box">
-          <h1 class="usr__name"><?= $user['name']; ?><sub class="usr__online">в сети</sub></h1>
+          <h1 class="usr__name"><?= htmlspecialchars($user['name']); ?><sub class="usr__online">в сети</sub></h1>
         </div>
         <h4 class="usr__status"><?= $user['info']; ?></h4>
         <?php if ($my_account === 0): ?>
@@ -149,11 +190,18 @@
             <form class="usr__form-message" method="post" action="set/message-sent.php">
               <label class="usr__form-label">Сообщение</label>
               <textarea class="usr__message" placeholder="Текст сообщения" name="message" id="message"></textarea>
-              <input type="hidden" value="<?= $receiver ?>" name="receiver" id="receiver">
               <input class="usr__sent-btn" type="submit" value="отправить">
               <a class="usr__cancel" href="#">Отменить</a>
             </form>
           </div>
+        <?php endif; ?>
+        <?php if ($hide === 1): ?>
+          <a class="usr__btn" href="#registerBanner">
+            Написать
+            <svg class="usr__send-icn">
+              <use xlink:href="#send"></use>
+            </svg>
+          </a>
         <?php endif; ?>
       </div>
       <div class="usr__knowledge">
@@ -162,26 +210,34 @@
           <img class="usr__icon" src="img/know.svg" alt="know">
         </div>
         <div>
+          <ul class="user-info__feed-list">
           <?php foreach($userSubjects as $subject): ?>
             <?php $subid = rand(1, 1000); ?>
-            <div class="user-info__subject">
-              <button class="user-info__button">
-                <?= $subject['title'] ?>
-                <img src="img/delete.svg" alt="Удалить">
-              </button>
-              <picture class="user-info__delete-icon">
-                <source media="(min-width: 1200px)" srcset="img/delete-desktop.svg">
-                <img src="img/delete.svg" alt="Удалить">
-              </picture>
-            </div>
+            <li class="user-info__feed">
+              <div class="user-info__subject">
+                <p><?= htmlspecialchars($subject['title']); ?></p>
+                <?php if ($my_account === 1): ?>
+                <img class="user-info__edit-pen" src="img/edit-pen.svg" alt="edit" onclick="Dropdown(<?= htmlspecialchars($subject['id']); ?>)">
+                <?php endif; ?>
+              </div>
             <div class="user-info__input-container">
-              <input class="user-info__input" type="text" name="description" id="description" value="<?= $subject['text'] ?>">
-              <picture class="user-info__edit-icon">
-                <source media="(min-width: 1200px)" srcset="img/pen-desktop.svg">
-                <img src="img/pen-mob.svg" alt="edit">
-              </picture>
+              <div class="user-info__input" type="text" id="<?= htmlspecialchars($subject['id']) . "del" ?>"> <?= htmlspecialchars($subject['text']); ?></div>
+              <?php if ($my_account === 1): ?>
+              <form class="user__app-form user__app-form--edit" id="<?= htmlspecialchars($subject['id']); ?>" method="post" action="set/editSub.php">
+                <label class="user__label user__label--wide">
+                  <textarea class="user__max-width" type="text" name="content" placeholder="Подробнее опишите ваши навыки"><?= htmlspecialchars($subject['text']); ?></textarea>
+                </label>
+                <input type="hidden" name="ftp" value="<?= htmlspecialchars($subject['id']); ?>">
+                <div class="user__max-width">
+                  <input class="user__submit" type="submit" value="Сохранить">
+                  <a class="user__submit user__submit--cancel close" onclick="Dropdown(<?= htmlspecialchars($subject['id']); ?>)">Отменить</a>
+                </div>
+              </form>
+              <?php endif; ?>
             </div>
+            </li>
           <?php endforeach; ?>
+          </ul>
           <div class="user__form-container" id="new-sub">
             <form class="user__app-form" id="additionalForm">
               <h2 class="user__form-title">Добавление предмета в профиль</h2>
@@ -221,21 +277,21 @@
                 <div class="apps__content-container">
                   <div class="apps__head-content">
                     <h2 class="apps__heading">
-                      <?= $app['title']; ?>
+                      <?= htmlspecialchars($app['title']); ?>
                     </h2>
                     <p class="apps__time">1 день назад</p>
                   </div>
                   <div class="apps__subject">
-                    <?= $app['mainTitle']; ?>
+                    <?= htmlspecialchars($app['mainTitle']); ?>
                   </div>
                   <p class="apps__description">
-                    <?= $app['content']; ?>
+                    <?= htmlspecialchars($app['content']); ?>
                   </p>
                   <div class="apps__footer-container">
                     <div class="apps__subjects-container">
                       <p class="apps__subjects-heading">Знаю:</p>
                       <?php foreach ($userSubjects as $u): ?>
-                        <div class="apps__subject"><?= $u['title'] ?></div>
+                        <div class="apps__subject"><?= htmlspecialchars($u['title']); ?></div>
                       <?php endforeach; ?>
                     </div>
                     <div class="apps__feedback-container">
@@ -280,6 +336,47 @@
             </div>
           </form>
         </div>
+        <?php endif; ?>
+      </div>
+      <div class="urs__feeds">
+        <?php if ($my_account === 0): ?>
+        <div class="user__form-container" id="new-feed">
+          <form class="user__app-form" method="post" action="set/addFeedback.php">
+            <h2 class="user__form-title">Оставить отзыв</h2>
+            <p class="user__form-description">Отзыв будет виден всем пользователям</p>
+            <div class="user__label">
+              <label class="user__label">Содержание</label>
+              <textarea class="user__max-width" type="text" name="feed_content" id="feed_content" placeholder="Подробнее опишите взаимодействие с пользователем"></textarea>
+            </div>
+            <div class="user__max-width">
+              <a class="user__submit" onclick="addNewFeed()" href="javascript:history.back()">Добавить</a>
+              <a class="user__submit user__submit--cancel close" href="#">Отменить</a>
+            </div>
+          </form>
+        </div>
+        <?php endif; ?>
+        <div class="usr__heading-box">
+          <p>Отзывы</p>
+          <img class="usr__icon" src="img/sets.svg" alt="know">
+        </div>
+        <ul class="usr__feeds-list" id="feedbacks">
+          <?php
+          foreach ($feeds as $fd):
+          $per_url = "user.php?" . http_build_query(["id" => $fd['identity']]);
+            ?>
+          <li class="usr__feed">
+            <a class="usr__feed usr__feed--no-deco" href="<?= $per_url ?>">
+            <img class="usr__feed-img" src="<?= $fd['url'] ?>" alt="<?= $fd['name'] ?>">
+            <div class="usr__feed-box">
+              <h2 class="usr__feed-head"><?= $fd['name'] ?></h2>
+              <p class="usr__feed-p"><?= $fd['content'] ?></p>
+            </div>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+        <?php if ($my_account === 0): ?>
+        <a class="usr__add-button" href="#new-feed">+ оставить отзыв</a>
         <?php endif; ?>
       </div>
       <?php if ($my_account === 1): ?>

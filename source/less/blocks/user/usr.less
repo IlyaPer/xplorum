@@ -166,7 +166,7 @@
   }
 }
 
-.usr__knowledge, .usr__apps, .usr__sets {
+.usr__knowledge, .usr__apps, .usr__sets, .urs__feeds {
   margin-top: 10px;
   padding: 5%;
   background-color: #FFFFFF;
@@ -203,6 +203,64 @@
   }
 }
 
+.urs__feeds {
+  background-image: url("../img/dynamicFeeds.svg");
+  background-position: bottom 0 left 0;
+  background-repeat: no-repeat;
+}
+
+.usr__feed {
+  background-color: rgba(238, 238, 238, 1);
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.usr__feed--no-deco {
+  text-decoration: none;
+  color: black;
+}
+
+.usr__feed-box {
+  padding-left: 5px;
+}
+
+.usr__feed-head {
+  font-size: 9px;
+  margin: 0;
+
+  @media (min-width: @desktop-width) {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+.usr__feed-p {
+  margin-top: 4px;
+  font-size: 9px;
+  line-height: 12px;
+  color: #8B8B8B;
+
+  @media (min-width: @desktop-width) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.usr__feeds-list {
+  list-style: none;
+  padding: 0;
+}
+
+.usr__feed-img {
+  border-radius: 50%;
+  width: 25%;
+}
+
 .usr__heading-box {
   display: flex;
   flex-wrap: nowrap;
@@ -210,7 +268,7 @@
 
   @media(min-width: @desktop-width) {
     flex-direction: row;
-    align-items: normal;
+    margin-bottom: 0;
   }
 }
 
